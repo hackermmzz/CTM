@@ -1,0 +1,9 @@
+#ifndef LEXIFIER_H
+#define LEXIFIER_H
+#include"debug.cpp"
+///////////////////////////////////////////
+struct Lexifier{
+    Lexifier(const char*file);
+};
+///////////////////////////////////////////
+#endif
