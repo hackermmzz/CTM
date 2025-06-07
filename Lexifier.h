@@ -3,7 +3,7 @@
 #include"debug.cpp"
 ///////////////////////////////////////////
 struct Lexifier{
-    Lexifier(const char*file);
+    Lexifier(string file);
 };
 ///////////////////////////////////////////
 #endif

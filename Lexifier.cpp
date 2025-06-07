@@ -1,6 +1,6 @@
 #include "Lexifier.h"
 
-Lexifier::Lexifier(const char *file)
+Lexifier::Lexifier(string file)
 {
     Debug(file);
 }

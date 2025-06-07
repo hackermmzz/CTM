@@ -1,3 +1,0 @@
-/root/mmzz/CTM/build/CMakeFiles/ctm.dir
-/root/mmzz/CTM/build/CMakeFiles/edit_cache.dir
-/root/mmzz/CTM/build/CMakeFiles/rebuild_cache.dir
