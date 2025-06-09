@@ -3,6 +3,7 @@
 #include<vector>
 #include"debug.cpp"
 #include"Lexifier.h"
+#include"Parser.h"
 using namespace std;
 ///////////////////////解析参数
 map<string,vector<string>>ParseArgument(int argc,char**argv);
@@ -17,12 +18,14 @@ int main(int argc,char**argv){
     vector<string> file=arguments["-o"];
     //
     Lexifier lexifier(arguments["Special"].front());
-    
+    Parser parser(lexifier.token);
+    //
     return 0;
 }
 
 map<string, vector<string>> ParseArgument(int argc, char **argv)
 {
+    
     map<string,vector<string>>ret;
     //对所有-x 类型获取其后面的参数，对于所有非此类型统一放到special里面
     auto&special= ret["Special"];

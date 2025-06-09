@@ -18,6 +18,18 @@ struct Token{
     int type;
     int line,pos;
     string data;
+    bool operator==(const Token&tk)const{
+        return type==tk.type;
+    }
+    bool operator==(int tp)const{
+        return type==tp;
+    }
+    bool operator!=(const Token&tk)const{
+        return type!=tk.type;
+    }
+    bool operator!=(int tp)const{
+        return type!=tp;
+    }
 };
 ///////////////////////////////////////////
 struct Lexifier{

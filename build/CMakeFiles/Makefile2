@@ -81,12 +81,12 @@ clean: CMakeFiles/ctm.dir/clean
 CMakeFiles/ctm.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ctm.dir/build.make CMakeFiles/ctm.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ctm.dir/build.make CMakeFiles/ctm.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/root/mmzz/CTM/build/CMakeFiles --progress-num=1,2,3,4 "Built target ctm"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/root/mmzz/CTM/build/CMakeFiles --progress-num=1,2,3,4,5 "Built target ctm"
 .PHONY : CMakeFiles/ctm.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/ctm.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/mmzz/CTM/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/mmzz/CTM/build/CMakeFiles 5
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/ctm.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /root/mmzz/CTM/build/CMakeFiles 0
 .PHONY : CMakeFiles/ctm.dir/rule

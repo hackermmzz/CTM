@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/ctm.dir/Lexifier.cpp.o"
   "CMakeFiles/ctm.dir/Lexifier.cpp.o.d"
+  "CMakeFiles/ctm.dir/Parser.cpp.o"
+  "CMakeFiles/ctm.dir/Parser.cpp.o.d"
   "CMakeFiles/ctm.dir/debug.cpp.o"
   "CMakeFiles/ctm.dir/debug.cpp.o.d"
   "CMakeFiles/ctm.dir/main.cpp.o"

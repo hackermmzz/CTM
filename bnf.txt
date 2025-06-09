@@ -60,14 +60,13 @@ struct:key_struct
 <function_definition>   ::=<type_specifier> {"*"} <identifier> "(" [<parameter_list>] ")" <compound_statement>
 <parameter_list>  ::= <parameter_declaration> { "," <parameter_declaration> }
 <parameter_declaration> ::= <type_specifier> <declarator>
-<declaration>     ::= <type_specifier> <init_declarator_list> ";"
+<declaration>     ::= <type_specifier> [ <init_declarator_list> ] ";"
 <init_declarator_list> ::= <init_declarator> { "," <init_declarator> }
 <init_declarator> ::= <declarator> [ "=" <initializer> ]
 <declarator>      ::= {"*"} <direct_declarator>
 <direct_declarator> ::= <identifier>
                       | "(" <declarator> ")"
                       | <direct_declarator> "[" <constant> "]"       # 定长数组
-                      | <direct_declarator> "(" [<parameter_list>] ")" # 函数指针
 <type_specifier>  ::= ["unsigned"] ( "void" | "byte" | "hword" | "word")
                      | "struct" <identifier> [ "{" <struct_declaration_list> "}" ]
 

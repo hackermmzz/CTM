@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/root/mmzz/CTM/Lexifier.cpp" "CMakeFiles/ctm.dir/Lexifier.cpp.o" "gcc" "CMakeFiles/ctm.dir/Lexifier.cpp.o.d"
+  "/root/mmzz/CTM/Parser.cpp" "CMakeFiles/ctm.dir/Parser.cpp.o" "gcc" "CMakeFiles/ctm.dir/Parser.cpp.o.d"
   "/root/mmzz/CTM/debug.cpp" "CMakeFiles/ctm.dir/debug.cpp.o" "gcc" "CMakeFiles/ctm.dir/debug.cpp.o.d"
   "/root/mmzz/CTM/main.cpp" "CMakeFiles/ctm.dir/main.cpp.o" "gcc" "CMakeFiles/ctm.dir/main.cpp.o.d"
   )

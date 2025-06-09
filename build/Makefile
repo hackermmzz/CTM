@@ -153,6 +153,30 @@ Lexifier.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ctm.dir/build.make CMakeFiles/ctm.dir/Lexifier.cpp.s
 .PHONY : Lexifier.cpp.s
 
+Parser.o: Parser.cpp.o
+.PHONY : Parser.o
+
+# target to build an object file
+Parser.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ctm.dir/build.make CMakeFiles/ctm.dir/Parser.cpp.o
+.PHONY : Parser.cpp.o
+
+Parser.i: Parser.cpp.i
+.PHONY : Parser.i
+
+# target to preprocess a source file
+Parser.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ctm.dir/build.make CMakeFiles/ctm.dir/Parser.cpp.i
+.PHONY : Parser.cpp.i
+
+Parser.s: Parser.cpp.s
+.PHONY : Parser.s
+
+# target to generate assembly for a file
+Parser.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ctm.dir/build.make CMakeFiles/ctm.dir/Parser.cpp.s
+.PHONY : Parser.cpp.s
+
 debug.o: debug.cpp.o
 .PHONY : debug.o
 
@@ -213,6 +237,9 @@ help:
 	@echo "... Lexifier.o"
 	@echo "... Lexifier.i"
 	@echo "... Lexifier.s"
+	@echo "... Parser.o"
+	@echo "... Parser.i"
+	@echo "... Parser.s"
 	@echo "... debug.o"
 	@echo "... debug.i"
 	@echo "... debug.s"

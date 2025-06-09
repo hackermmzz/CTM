@@ -1,16 +1,8 @@
-#include<stdio.h>
-void cout(int x){
-    asm(
-        "li $v0,5",
-        "syscall",
-        );
-}
-struct Pos{
-    int x,y;
+struct Test{
+    struct A{
+        byte x,y;
+        word cost;
+        void* data[100];
+    }a;
+    struct wlh mask;
 };
-void main(){
-    for(int i=1;i<=n;++i){
-        cout(pos.x);
-        cout((&pos)->y);
-    }
-}
