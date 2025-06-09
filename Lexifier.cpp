@@ -25,5 +25,48 @@ Lexifier::Lexifier(string file)
 
 void Lexifier::parse()
 {
+    while(idx<buf.size()){
+        skip();
+
+        //
+        
+        //
+        //
+        //
+    }
+}
+
+void Lexifier::skip()
+{
+    bool flag=1;
+    while(idx<buf.size()&&flag){
+        flag=0;
+        char ch0=buf[idx],ch1=idx+1<buf.size()?buf[idx+1]:0;
+        //处理换行和空格
+        if(ch0=='\n'||ch0=='\r'||ch0==' ')++idx,flag=1;
+        //处理 // 注释
+        else if(ch0=='/'&&ch1=='/'){
+            while(idx<buf.size()&&buf[idx]!='\n')++idx;
+            flag=1;
+        }
+        //处理/* */注释
+        else if(ch0=='/'&&ch1=='*'){
+            idx+=3;
+            while(idx<buf.size()&&(buf[idx]!='/'||buf[idx-1]!='*'))++idx;
+            flag=1;
+        }
+        //处理预处理#号
+        else if(ch0=='#'){
+            while(idx<buf.size()&&buf[idx]!='\n')++idx;
+            flag=1;
+        }
+    }
+}
+
+void Lexifier::next(){
+    return nextn(1);
+}
+void Lexifier::nextn(int n){
+    int idx=min(idx+n,int(buf.size()));
     
 }
