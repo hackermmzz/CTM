@@ -1,0 +1,88 @@
+<program>         ::= { <function_definition> | <declaration> }
+
+# 关键修改：函数定义中的声明器必须是函数声明器
+<function_definition> ::= <type_specifier> <function_declarator> <compound_statement>
+<function_declarator> ::= { "*" [<type_qualifier>] } <identifier> "(" [<parameter_list>] ")"
+
+<parameter_list>  ::= <parameter_declaration> { "," <parameter_declaration> }
+<parameter_declaration> ::= <type_specifier> <declarator>
+
+<declaration>     ::= <type_specifier> <init_declarator_list> ";"
+<init_declarator_list> ::= <init_declarator> { "," <init_declarator> }
+<init_declarator> ::= <declarator> [ "=" <initializer> ]
+
+# 普通声明器（可用于变量、参数等）
+<declarator>      ::= { "*" [<type_qualifier>] } <direct_declarator>
+<direct_declarator> ::= <identifier>
+                      | "(" <declarator> ")"
+                      | <direct_declarator> "[" <constant> "]"       # 定长数组
+                      | <direct_declarator> "(" [<parameter_list>] ")" # 函数指针
+
+# 类型系统保持不变
+<type_specifier>  ::= [<sign>] ( "void" | "char" | "short" | "int" | "double" )
+                     | "struct" <identifier> [ "{" <struct_declaration_list> "}" ]
+<sign>            ::= "signed" | "unsigned"
+<type_qualifier>  ::= "const" | "volatile"
+
+# 其余部分保持不变...
+<struct_declaration_list> ::= { <struct_declaration> ";" }
+<struct_declaration> ::= <type_specifier> <struct_declarator_list>
+<struct_declarator_list> ::= <struct_declarator> { "," <struct_declarator> }
+<struct_declarator> ::= { "*" [<type_qualifier>] } <identifier> [ "[" <constant> "]" ]
+
+<initializer>     ::= <assignment_expression>
+                     | "{" [<initializer_list> [ "," ] ] "}"
+<initializer_list> ::= <initializer> { "," <initializer> }
+
+<compound_statement> ::= "{" { <block_item> } "}"
+<block_item>       ::= <declaration> | <statement>
+<statement>       ::= <expression_statement>
+                     | <compound_statement>
+                     | <selection_statement>
+                     | <iteration_statement>
+                     | <jump_statement>
+<expression_statement> ::= [<expression>] ";"
+<selection_statement> ::= "if" "(" <expression> ")" <statement> [ "else" <statement> ]
+<iteration_statement> ::= "while" "(" <expression> ")" <statement>
+                     | "do" <statement> "while" "(" <expression> ")" ";"
+                     | "for" "(" [<expression>] ";" [<expression>] ";" [<expression>] ")" <statement>
+<jump_statement>  ::= "continue" ";"
+                     | "break" ";"
+                     | "return" [<expression>] ";"
+
+<expression>      ::= <assignment_expression> { "," <assignment_expression> }
+<assignment_expression> ::= <conditional_expression>
+                     | <unary_expression> <assignment_operator> <assignment_expression>
+<assignment_operator> ::= "=" | "*=" | "/=" | "%=" | "+=" | "-=" | "<<=" | ">>=" | "&=" | "^=" | "|="
+<conditional_expression> ::= <logical_or_expression> [ "?" <expression> ":" <conditional_expression> ]
+<logical_or_expression> ::= <logical_and_expression> { "||" <logical_and_expression> }
+<logical_and_expression> ::= <inclusive_or_expression> { "&&" <inclusive_or_expression> }
+<inclusive_or_expression> ::= <exclusive_or_expression> { "|" <exclusive_or_expression> }
+<exclusive_or_expression> ::= <and_expression> { "^" <and_expression> }
+<and_expression>  ::= <equality_expression> { "&" <equality_expression> }
+<equality_expression> ::= <relational_expression> { ("==" | "!=") <relational_expression> }
+<relational_expression> ::= <shift_expression> { ("<" | ">" | "<=" | ">=") <shift_expression> }
+<shift_expression> ::= <additive_expression> { ("<<" | ">>") <additive_expression> }
+<additive_expression> ::= <multiplicative_expression> { ("+" | "-") <multiplicative_expression> }
+<multiplicative_expression> ::= <cast_expression> { ("*" | "/" | "%") <cast_expression> }
+<cast_expression> ::= <unary_expression>
+                     | "(" <type_specifier> { "*" [<type_qualifier>] } ")" <cast_expression>
+<unary_expression> ::= <postfix_expression>
+                     | "++" <unary_expression>
+                     | "--" <unary_expression>
+                     | <unary_operator> <cast_expression>
+                     | "sizeof" "(" <type_specifier> { "*" [<type_qualifier>] } ")"
+                     | "sizeof" <unary_expression>
+<unary_operator>   ::= "&" | "*" | "+" | "-" | "~" | "!"
+<postfix_expression> ::= <primary_expression>
+                     | <postfix_expression> "[" <expression> "]"
+                     | <postfix_expression> "(" [<argument_list>] ")"
+                     | <postfix_expression> "." <identifier>
+                     | <postfix_expression> "->" <identifier>
+                     | <postfix_expression> "++"
+                     | <postfix_expression> "--"
+<primary_expression> ::= <identifier>
+                     | <constant>
+                     | "(" <expression> ")"
+<argument_list>    ::= <assignment_expression> { "," <assignment_expression> }
+<constant>         ::= <integer_constant> | <floating_constant> | <character_constant>

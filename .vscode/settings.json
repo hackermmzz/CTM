@@ -13,6 +13,7 @@
         "format": "cpp",
         "xlocale": "cpp",
         "xlocmon": "cpp",
-        "xutility": "cpp"
+        "xutility": "cpp",
+        "istream": "cpp"
     }
 }
