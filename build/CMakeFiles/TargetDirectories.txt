@@ -1,0 +1,3 @@
+C:/vscode/CTM/build/CMakeFiles/ctm.dir
+C:/vscode/CTM/build/CMakeFiles/edit_cache.dir
+C:/vscode/CTM/build/CMakeFiles/rebuild_cache.dir

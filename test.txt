@@ -16,7 +16,7 @@ int main(int argc,char**argv){
     //
     vector<string> file=arguments["-o"];
     //
-    Lexifier lexifier(arguments["Special"].front());
+    Lexifier lexifier(file.front());
     
     return 0;
 }
@@ -26,7 +26,7 @@ map<string, vector<string>> ParseArgument(int argc, char **argv)
     map<string,vector<string>>ret;
     //对所有-x 类型获取其后面的参数，对于所有非此类型统一放到special里面
     auto&special= ret["Special"];
-    int idx=1;//不读取命令行
+    int idx=0;
     while(idx<argc){
         string arg=argv[idx++];
         if(arg[0]!='-'){

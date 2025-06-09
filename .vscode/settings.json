@@ -3,6 +3,11 @@
         "*.asm": "nasm",
         "*.c": "c",
         "xstring": "cpp",
-        "vector": "cpp"
+        "vector": "cpp",
+        "iostream": "cpp",
+        "iosfwd": "cpp",
+        "xiosbase": "cpp",
+        "fstream": "cpp",
+        "unordered_map": "cpp"
     }
 }
