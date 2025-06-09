@@ -130,4 +130,14 @@ CMakeFiles/ctm.dir/Lexifier.cpp.obj: C:\vscode\CTM\Lexifier.cpp \
  C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/stl_uninitialized.h \
  C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/stl_vector.h \
  C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/stl_bvector.h \
- C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/vector.tcc
+ C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/vector.tcc \
+ C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/unordered_map \
+ C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/utility \
+ C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/stl_relops.h \
+ C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/tuple \
+ C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/array \
+ C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/uses_allocator.h \
+ C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/ext/aligned_buffer.h \
+ C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/hashtable.h \
+ C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/hashtable_policy.h \
+ C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/unordered_map.h

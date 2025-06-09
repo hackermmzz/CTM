@@ -9,6 +9,7 @@ CMakeFiles/ctm.dir/Lexifier.cpp.obj: C:/vscode/CTM/Lexifier.cpp \
   C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/_mingw_print_push.h \
   C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/_mingw_secapi.h \
   C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/_mingw_stat64.h \
+  C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/array \
   C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward/binders.h \
   C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/alloc_traits.h \
   C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/allocator.h \
@@ -28,6 +29,8 @@ CMakeFiles/ctm.dir/Lexifier.cpp.obj: C:/vscode/CTM/Lexifier.cpp \
   C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/functexcept.h \
   C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/functional_hash.h \
   C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/hash_bytes.h \
+  C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/hashtable.h \
+  C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/hashtable_policy.h \
   C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/ios_base.h \
   C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/istream.tcc \
   C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/locale_classes.h \
@@ -52,11 +55,14 @@ CMakeFiles/ctm.dir/Lexifier.cpp.obj: C:/vscode/CTM/Lexifier.cpp \
   C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/stl_iterator_base_funcs.h \
   C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/stl_iterator_base_types.h \
   C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/stl_pair.h \
+  C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/stl_relops.h \
   C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/stl_uninitialized.h \
   C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/stl_vector.h \
   C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/streambuf.tcc \
   C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/streambuf_iterator.h \
   C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/stringfwd.h \
+  C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/unordered_map.h \
+  C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/uses_allocator.h \
   C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/vector.tcc \
   C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/cctype \
   C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/cerrno \
@@ -68,6 +74,7 @@ CMakeFiles/ctm.dir/Lexifier.cpp.obj: C:/vscode/CTM/Lexifier.cpp \
   C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/cwctype \
   C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/debug/debug.h \
   C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/exception \
+  C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/ext/aligned_buffer.h \
   C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/ext/alloc_traits.h \
   C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/ext/atomicity.h \
   C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/ext/new_allocator.h \
@@ -99,7 +106,10 @@ CMakeFiles/ctm.dir/Lexifier.cpp.obj: C:/vscode/CTM/Lexifier.cpp \
   C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/streambuf \
   C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/string \
   C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/system_error \
+  C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/tuple \
   C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/type_traits \
+  C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/unordered_map \
+  C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/utility \
   C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/vector \
   C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/crtdefs.h \
   C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/ctype.h \
@@ -286,6 +296,8 @@ CMakeFiles/ctm.dir/main.cpp.obj: C:/vscode/CTM/main.cpp \
   C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/functexcept.h \
   C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/functional_hash.h \
   C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/hash_bytes.h \
+  C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/hashtable.h \
+  C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/hashtable_policy.h \
   C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/ios_base.h \
   C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/istream.tcc \
   C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/locale_classes.h \
@@ -319,6 +331,7 @@ CMakeFiles/ctm.dir/main.cpp.obj: C:/vscode/CTM/main.cpp \
   C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/streambuf.tcc \
   C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/streambuf_iterator.h \
   C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/stringfwd.h \
+  C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/unordered_map.h \
   C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/uses_allocator.h \
   C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/vector.tcc \
   C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/cctype \
@@ -366,6 +379,7 @@ CMakeFiles/ctm.dir/main.cpp.obj: C:/vscode/CTM/main.cpp \
   C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/system_error \
   C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/tuple \
   C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/type_traits \
+  C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/unordered_map \
   C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/utility \
   C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/vector \
   C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/crtdefs.h \
@@ -436,6 +450,10 @@ C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/exception_defi
 
 C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/_mingw_print_pop.h:
 
+C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/basic_ios.tcc:
+
+C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/array:
+
 C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward/binders.h:
 
 C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/alloc_traits.h:
@@ -453,8 +471,6 @@ C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/atomic_lockfre
 C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/codecvt.h:
 
 C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/basic_ios.h:
-
-C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/basic_ios.tcc:
 
 C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/basic_string.h:
 
@@ -480,6 +496,12 @@ C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/ios_base.h:
 
 C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/functexcept.h:
 
+C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/hashtable.h:
+
+C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/postypes.h:
+
+C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/hashtable_policy.h:
+
 C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/istream.tcc:
 
 C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/locale_classes.h:
@@ -502,15 +524,11 @@ C:/vscode/CTM/main.cpp:
 
 C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/cctype:
 
+C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/stl_relops.h:
+
 C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/localefwd.h:
 
 C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/ostream_insert.h:
-
-C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/cwchar:
-
-C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/cstdio:
-
-C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/postypes.h:
 
 C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/ptr_traits.h:
 
@@ -534,19 +552,27 @@ C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/stl_uninitiali
 
 C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/stl_vector.h:
 
+C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/unordered_map.h:
+
+C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/uses_allocator.h:
+
 C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/vector.tcc:
 
 C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/cerrno:
 
 C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/clocale:
 
-C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/ext/aligned_buffer.h:
-
 C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/stl_map.h:
+
+C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/ext/aligned_buffer.h:
 
 C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/cstdint:
 
+C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/cstdio:
+
 C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/cstdlib:
+
+C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/cwchar:
 
 C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/cwctype:
 
@@ -624,6 +650,10 @@ C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/stdexcept:
 
 C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/string:
 
+C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/tuple:
+
+C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/unordered_map:
+
 C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/vector:
 
 C:/Qt/Qt5.9.2/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed/syslimits.h:
@@ -682,14 +712,6 @@ C:/vscode/CTM/Lexifier.h:
 
 C:/vscode/CTM/debug.cpp:
 
-C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/array:
-
 C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/stl_multimap.h:
 
-C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/stl_relops.h:
-
 C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/stl_tree.h:
-
-C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/bits/uses_allocator.h:
-
-C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/tuple:
