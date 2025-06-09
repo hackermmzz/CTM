@@ -13,6 +13,12 @@
         "format": "cpp",
         "xlocale": "cpp",
         "xlocmon": "cpp",
-        "xutility": "cpp"
+        "xutility": "cpp",
+        "istream": "cpp",
+        "array": "cpp",
+        "string_view": "cpp",
+        "initializer_list": "cpp",
+        "compare": "cpp",
+        "type_traits": "cpp"
     }
 }

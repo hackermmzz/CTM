@@ -1,3 +1,1 @@
-"C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\ctm.dir/objects.a
-C:\Qt\Qt5.9.2\Tools\mingw530_32\bin\ar.exe qc CMakeFiles\ctm.dir/objects.a @CMakeFiles\ctm.dir\objects1.rsp
-C:\Qt\Qt5.9.2\Tools\mingw530_32\bin\c++.exe -Wl,--whole-archive CMakeFiles\ctm.dir/objects.a -Wl,--no-whole-archive -o ctm.exe -Wl,--out-implib,libctm.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\ctm.dir\linkLibs.rsp
+/usr/bin/c++ CMakeFiles/ctm.dir/Lexifier.cpp.o CMakeFiles/ctm.dir/debug.cpp.o CMakeFiles/ctm.dir/main.cpp.o -o ctm 

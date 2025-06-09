@@ -1,14 +1,12 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/ctm.dir/Lexifier.cpp.obj"
-  "CMakeFiles/ctm.dir/Lexifier.cpp.obj.d"
-  "CMakeFiles/ctm.dir/debug.cpp.obj"
-  "CMakeFiles/ctm.dir/debug.cpp.obj.d"
-  "CMakeFiles/ctm.dir/main.cpp.obj"
-  "CMakeFiles/ctm.dir/main.cpp.obj.d"
-  "ctm.exe"
-  "ctm.exe.manifest"
+  "CMakeFiles/ctm.dir/Lexifier.cpp.o"
+  "CMakeFiles/ctm.dir/Lexifier.cpp.o.d"
+  "CMakeFiles/ctm.dir/debug.cpp.o"
+  "CMakeFiles/ctm.dir/debug.cpp.o.d"
+  "CMakeFiles/ctm.dir/main.cpp.o"
+  "CMakeFiles/ctm.dir/main.cpp.o.d"
+  "ctm"
   "ctm.pdb"
-  "libctm.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.

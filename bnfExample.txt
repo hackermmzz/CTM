@@ -1,84 +1,41 @@
-#############################所有的tokens
-++:Inc
---:Dec
-+:Add
--:Sub
-*:Star
-/:Div
-%:Mod
-~:Bneg
-!:Not
-^:Xor
-&:Band
-(:Lpb
-):Rpb
-=:Assign
-[:Lsb
-]:Rsb
-{:Lcb
-}:Rcb
-|:Bor,
-;:Sem
-":Dq,
-':Sq
-<,Lt
-,:Comma
->,Gt
-.,Dot
-->:Point
-<=:Le
->=:Ge
-!=:Ne
-==:Eq
-&&:Land
-||:Lor
-+=:Adds
--=:Subs,
-*=:Muls
-/=:Divs
-%=:Mods
-for:key_for
-while:Key_While
-if:key_if
-else:key_else
-switch:key_switch
-case:key_case
-default:key_default
-continue:key_continue
-break:key_break
-return:key_return
-asm:key_asm
-void:key_void
-byte:key_byte
-hword:key_hword
-word :key_word
-unsigned:key_unsigned
-struct:key_struct
-#############################下面为c语言bnf子集
-<program>   ::={<function_definition>|<declaration>}
+<program>         ::= { <function_definition> | <declaration> }
 
-<function_definition>   ::=<type_specifier> {"*"} <identifier> "(" [<parameter_list>] ")" <compound_statement>
+# 关键修改：函数定义中的声明器必须是函数声明器
+<function_definition> ::= <type_specifier> <function_declarator> <compound_statement>
+<function_declarator> ::= { "*" [<type_qualifier>] } <identifier> "(" [<parameter_list>] ")"
+
 <parameter_list>  ::= <parameter_declaration> { "," <parameter_declaration> }
 <parameter_declaration> ::= <type_specifier> <declarator>
+
 <declaration>     ::= <type_specifier> <init_declarator_list> ";"
 <init_declarator_list> ::= <init_declarator> { "," <init_declarator> }
 <init_declarator> ::= <declarator> [ "=" <initializer> ]
-<declarator>      ::= {"*"} <direct_declarator>
+
+# 普通声明器（可用于变量、参数等）
+<declarator>      ::= { "*" [<type_qualifier>] } <direct_declarator>
 <direct_declarator> ::= <identifier>
                       | "(" <declarator> ")"
                       | <direct_declarator> "[" <constant> "]"       # 定长数组
                       | <direct_declarator> "(" [<parameter_list>] ")" # 函数指针
-<type_specifier>  ::= ["unsigned"] ( "void" | "byte" | "hword" | "word")
-                     | "struct" <identifier> [ "{" <struct_declaration_list> "}" ]
 
+# 类型系统保持不变
+<type_specifier>  ::= [<sign>] ( "void" | "char" | "short" | "int" | "double" )
+                     | "struct" <identifier> [ "{" <struct_declaration_list> "}" ]
+<sign>            ::= "signed" | "unsigned"
+<type_qualifier>  ::= "const" | "volatile"
+
+# 其余部分保持不变...
 <struct_declaration_list> ::= { <struct_declaration> ";" }
 <struct_declaration> ::= <type_specifier> <struct_declarator_list>
-<struct_declarator_list> ::= <declarator>  { "," <declarator>  }
+<struct_declarator_list> ::= <struct_declarator> { "," <struct_declarator> }
+<struct_declarator> ::= { "*" [<type_qualifier>] } <identifier> [ "[" <constant> "]" ]
 
 <initializer>     ::= <assignment_expression>
-                     | "{" [<initializer_list>] "}"
+                     | "{" [<initializer_list> [ "," ] ] "}"
 <initializer_list> ::= <initializer> { "," <initializer> }
-<compound_statement> ::= "{" { <declaration> | <statement> } "}"
+
+<compound_statement> ::= "{" { <block_item> } "}"
+<block_item>       ::= <declaration> | <statement>
 <statement>       ::= <expression_statement>
                      | <compound_statement>
                      | <selection_statement>
@@ -88,15 +45,16 @@ struct:key_struct
 <selection_statement> ::= "if" "(" <expression> ")" <statement> [ "else" <statement> ]
 <iteration_statement> ::= "while" "(" <expression> ")" <statement>
                      | "do" <statement> "while" "(" <expression> ")" ";"
-                     | "for" "(" [<declaration>|<expression>] ";" [<expression>] ";" [<expression>] ")" <statement>
+                     | "for" "(" [<expression>] ";" [<expression>] ";" [<expression>] ")" <statement>
 <jump_statement>  ::= "continue" ";"
                      | "break" ";"
                      | "return" [<expression>] ";"
+
 <expression>      ::= <assignment_expression> { "," <assignment_expression> }
 <assignment_expression> ::= <conditional_expression>
                      | <unary_expression> <assignment_operator> <assignment_expression>
 <assignment_operator> ::= "=" | "*=" | "/=" | "%=" | "+=" | "-=" 
-<conditional_expression> ::= <logical_or_expression> [ "?" <expression> ":" <expression> ]
+<conditional_expression> ::= <logical_or_expression> [ "?" <expression> ":" <conditional_expression> ]
 <logical_or_expression> ::= <logical_and_expression> { "||" <logical_and_expression> }
 <logical_and_expression> ::= <inclusive_or_expression> { "&&" <inclusive_or_expression> }
 <inclusive_or_expression> ::= <exclusive_or_expression> { "|" <exclusive_or_expression> }
@@ -113,7 +71,7 @@ struct:key_struct
                      | "++" <unary_expression>
                      | "--" <unary_expression>
                      | <unary_operator> <cast_expression>
-                     | "sizeof" "(" <type_specifier> { "*" } ")"
+                     | "sizeof" "(" <type_specifier> { "*" [<type_qualifier>] } ")"
                      | "sizeof" <unary_expression>
 <unary_operator>   ::= "&" | "*" | "+" | "-" | "~" | "!"
 <postfix_expression> ::= <primary_expression>
@@ -127,4 +85,4 @@ struct:key_struct
                      | <constant>
                      | "(" <expression> ")"
 <argument_list>    ::= <assignment_expression> { "," <assignment_expression> }
-<constant>         ::= <integer_constant>  | <character_constant>
+<constant>         ::= <integer_constant> | <floating_constant> | <character_constant>
