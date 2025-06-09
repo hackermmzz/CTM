@@ -19,8 +19,8 @@ struct Lexifier{
     Lexifier(string file);
     void parse();
     void skip();//跳过空白 # 等那些我不需要解析的字符
-    void next();
-    void nextn(int n);
+    char next();
+    char nextn(int n);
 };
 ///////////////////////////////////////////
 #endif

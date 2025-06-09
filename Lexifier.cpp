@@ -63,10 +63,10 @@ void Lexifier::skip()
     }
 }
 
-void Lexifier::next(){
+char Lexifier::next(){
     return nextn(1);
 }
-void Lexifier::nextn(int n){
-    int idx=min(idx+n,int(buf.size()));
-    
+char Lexifier::nextn(int n){
+    int t=idx+n;
+    return t<buf.size()?buf[t]:0;
 }
