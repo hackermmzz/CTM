@@ -84,6 +84,7 @@ struct:key_struct
                      | <selection_statement>
                      | <iteration_statement>
                      | <jump_statement>
+                     | <asm_statement>
 <expression_statement> ::= [<expression>] ";"
 <selection_statement> ::= "if" "(" <expression> ")" <statement> [ "else" <statement> ]
 <iteration_statement> ::= "while" "(" <expression> ")" <statement>
@@ -92,6 +93,7 @@ struct:key_struct
 <jump_statement>  ::= "continue" ";"
                      | "break" ";"
                      | "return" [<expression>] ";"
+<asm_statement>   ::="asm" "("[<str> {,<str>}]")"
 <expression>      ::= <assignment_expression> { "," <assignment_expression> }
 <assignment_expression> ::= <conditional_expression>
                      | <unary_expression> <assignment_operator> <assignment_expression>

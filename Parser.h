@@ -9,6 +9,7 @@ struct Parser{
     Token& next();
     Token& nextn(int n);
     Token& cur();
+    void parse();
 };
 ///////////////////////////////
 #endif

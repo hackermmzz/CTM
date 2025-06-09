@@ -6,7 +6,7 @@
 #include<unordered_map>
 ///////////////////////////////////////////
 enum{
-    Inc,Dec,Add,Sub,Star,Div,Mod,Bneg,Not,Xor,Band,Lpb,Rpb,Assign,Lsb,Rsb,Lcb,Rcb,Bor,
+    Inc=1,Dec,Add,Sub,Star,Div,Mod,Bneg,Not,Xor,Band,Lpb,Rpb,Assign,Lsb,Rsb,Lcb,Rcb,Bor,
     Sem,Dq,Sq,Lt,Comma,Gt,Dot,Le,Ge,Ne,Eq,Land,Lor,Adds,Subs,Muls,Divs,Mods,Point,
     key_for,key_while,key_if,key_else,key_switch,key_case,key_default,key_continue,
     key_break,key_return,key_asm,key_void,key_byte,key_hword,key_word,key_unsigned,key_struct,
