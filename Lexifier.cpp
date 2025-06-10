@@ -5,9 +5,9 @@ key_for,Key_While,key_if,key_else,key_switch,key_case,key_default,key_continue,
 key_break,key_return,key_asm,key_void,key_byte,key_hword,key_word,key_unsigned,key_struct,
 */
 unordered_map<string,int>KeyWord={
-    {"for",key_for},{"while",key_while},{"if",key_if},{"else",key_else},{"switch",key_switch},{"case",key_case},
+    {"for",key_for},{"while",key_while},{"if",key_if},{"else",key_else},{"switch",key_switch},{"case",key_case},{"do",key_do},
     {"default",key_default},{"continue",key_continue},{"break",key_break},{"return",key_return},{"asm",key_asm},
-    {"void",key_void},{"byte",key_byte},{"hword",key_hword},{"word",key_word},{"unsigned",key_unsigned},{"struct",key_struct}
+    {"void",key_void},{"byte",key_byte},{"hword",key_hword},{"word",key_word},{"unsigned",key_unsigned},{"struct",key_struct},
 
 };
 ///////////////////////////////////////////////
@@ -32,7 +32,7 @@ void Lexifier::parse()
 {
     
     /*
-    key_for,key_while,key_if,key_else,key_switch,key_case,key_default,key_continue,
+    key_for,key_do,key_while,key_if,key_else,key_switch,key_case,key_default,key_continue,
     key_break,key_return,key_asm,key_void,key_byte,key_hword,key_word,key_unsigned,key_struct
     */
     while(1){
@@ -118,7 +118,7 @@ void Lexifier::parse()
             if(next()=='|')token.push_back({Lor,line,pos,"||"}),pos+=2,idx+=2;
             else token.push_back({Bor,line,pos,"|"}),++pos,++idx;
         }
-        //! != == >= <= > <
+        //! != == >= <= > < <<  >>
         else if(ch=='!'){
             if(next()=='=')token.push_back({Ne,line,pos,"!="}),pos+=2,idx+=2;
             else token.push_back({Not,line,pos,"!"}),++pos,++idx;
@@ -129,13 +129,15 @@ void Lexifier::parse()
         }
         else if(ch=='>'){
             if(next()=='=')token.push_back({Ge,line,pos,">="}),pos+=2,idx+=2;
+            else if(next()=='>')token.push_back({Rs,line,pos,">>"}),pos+=2,idx+=2;
             else token.push_back({Gt,line,pos,">"}),++pos,++idx;
         }
         else if(ch=='<'){
             if(next()=='=')token.push_back({Le,line,pos,"<="}),pos+=2,idx+=2;
+            else if(next()=='<')token.push_back({Ls,line,pos,"<<"}),pos+=2,idx+=2;
             else token.push_back({Lt,line,pos,"<"}),++pos,++idx;
         }
-        //() [] {}  "" '' ; , .
+        //() [] {}  "" '' ; , .  :
         else if(ch=='(')token.push_back({Lpb,line,pos,"("}),++pos,++idx;
         else if(ch==')')token.push_back({Rpb,line,pos,")"}),++pos,++idx;
         else if(ch=='[')token.push_back({Lsb,line,pos,"["}),++pos,++idx;
@@ -145,6 +147,7 @@ void Lexifier::parse()
         else if(ch==';')token.push_back({Sem,line,pos,";"}),++pos,++idx;
         else if(ch==',')token.push_back({Comma,line,pos,","}),++pos,++idx;
         else if(ch=='.')token.push_back({Dot,line,pos,"."}),++pos,++idx;
+        else if(ch==':')token.push_back({Colon,line,pos,":"}),++pos,++idx;
         else if(ch=='\"'){
             Token tk;tk.line=line,tk.pos=idx;tk.type=STR_Literal;
             bool flag=1;

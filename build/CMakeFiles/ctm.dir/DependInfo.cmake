@@ -8,14 +8,18 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "C:/vscode/CTM/Lexifier.cpp" "CMakeFiles/ctm.dir/Lexifier.cpp.obj" "gcc" "CMakeFiles/ctm.dir/Lexifier.cpp.obj.d"
-  "C:/vscode/CTM/Parser.cpp" "CMakeFiles/ctm.dir/Parser.cpp.obj" "gcc" "CMakeFiles/ctm.dir/Parser.cpp.obj.d"
-  "C:/vscode/CTM/debug.cpp" "CMakeFiles/ctm.dir/debug.cpp.obj" "gcc" "CMakeFiles/ctm.dir/debug.cpp.obj.d"
-  "C:/vscode/CTM/main.cpp" "CMakeFiles/ctm.dir/main.cpp.obj" "gcc" "CMakeFiles/ctm.dir/main.cpp.obj.d"
+  "/root/mmzz/CTM/Lexifier.cpp" "CMakeFiles/ctm.dir/Lexifier.cpp.o" "gcc" "CMakeFiles/ctm.dir/Lexifier.cpp.o.d"
+  "/root/mmzz/CTM/Parser.cpp" "CMakeFiles/ctm.dir/Parser.cpp.o" "gcc" "CMakeFiles/ctm.dir/Parser.cpp.o.d"
+  "/root/mmzz/CTM/debug.cpp" "CMakeFiles/ctm.dir/debug.cpp.o" "gcc" "CMakeFiles/ctm.dir/debug.cpp.o.d"
+  "/root/mmzz/CTM/main.cpp" "CMakeFiles/ctm.dir/main.cpp.o" "gcc" "CMakeFiles/ctm.dir/main.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.
 set(CMAKE_Fortran_TARGET_LINKED_INFO_FILES
+  )
+
+# Targets to which this target links which contain Fortran sources.
+set(CMAKE_Fortran_TARGET_FORWARD_LINKED_INFO_FILES
   )
 
 # Fortran module output directory.

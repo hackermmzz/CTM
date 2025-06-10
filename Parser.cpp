@@ -42,11 +42,11 @@ void Parser::parse(){
 Function *Parser::Parse_function(TypeSpecifier *ts)
 {
     Function*ret=new Function;
-    ret->retType0=*ts;
+    ret->retType.tp=*ts;
     //解析指针
     int beg=idx;
     while(cur()==Star)++idx;
-    ret->pointer=idx-beg;
+    ret->retType.pointer=idx-beg;
     //
     if(cur()!=ID){
         Error("in line "<<cur().data<<" pos "<<cur().pos<<" function must have a name");
@@ -273,7 +273,16 @@ Initializer *Parser::Parse_initializer()
 
 AssignExp *Parser::Parse_assignment_expression()
 {
-    
+    AssignExp*ret=new AssignExp;
+    auto*r=Parse_logical_or_expression();
+    ret->exp0=r;
+    auto&tk=cur();
+    if(tk==Assign||tk==Adds||tk==Subs||tk==Muls||tk==Divs||tk==Mods){
+        ret->op=tk.type;
+        ++idx;
+        ret->exp1=Parse_assignment_expression();
+    }
+    return ret;
 }
 
 InitializerList *Parser::Parse_initializerList()
@@ -285,15 +294,473 @@ InitializerList *Parser::Parse_initializerList()
         ++idx;
         ret->init.push_back(Parse_initializer());
     }
+    return ret;
 }
 
 ComposedStatment *Parser::Parse_composed_statement()
 {
+    ComposedStatment*ret=new ComposedStatment;
+    if(cur()!=Lcb){
+        Error("expect \"{\" in line "<<cur().line<<" pos "<<cur().pos);
+    }
+    ++idx;
+    //
+    while(cur()!=0&&cur()!=Rcb){
+        auto tk=cur();
+        //["unsigned"] ( "void" | "byte" | "hword" | "word")| "struct"
+        if(tk==key_unsigned||CheckIsBaseType(tk)||tk==key_struct){
+            ret->p.push_back({0,Parse_declaration(Parse_type_specifier())});
+        }
+        else ret->p.push_back({1,Parse_composed_statement()});
+    }
+    //
+    if(cur()!=Rcb){
+         Error("expect \"}\" in line "<<cur().line<<" pos "<<cur().pos);
+    }
+    return ret;
+}
+
+LogicalOrExp *Parser::Parse_logical_or_expression()
+{
+    LogicalOrExp*ret=new LogicalOrExp;
+    ret->exp0=Parse_logical_and_expression();
+    if(cur()==Lor){
+        ++idx;
+        ret->exp1=Parse_logical_and_expression();
+    }
+    return ret;
+}
+
+LogicalAndExp *Parser::Parse_logical_and_expression()
+{
+    LogicalAndExp*ret=new LogicalAndExp;
+    ret->exp0=Parse_inclusive_or_expression();
+    if(cur()==Land){
+        ++idx;
+        ret->exp1=Parse_inclusive_or_expression();
+    }
+    return ret;
+}
+
+InclusiveOrExp *Parser::Parse_inclusive_or_expression()
+{
+    InclusiveOrExp*ret=new InclusiveOrExp;
+    ret->exp0=Parse_exclusive_or_expression();
+    if(cur()==Bor){
+        ++idx;
+        ret->exp1=Parse_exclusive_or_expression();
+    }
+    return ret;
+}
+
+ExclusiveOrExp *Parser::Parse_exclusive_or_expression()
+{
+    ExclusiveOrExp*ret=new ExclusiveOrExp;
+    ret->exp0=Parse_and_expression();
+    if(cur()==Xor){
+        ++idx;
+        ret->exp1=Parse_and_expression();
+    }
+    return ret;
+}
+
+AndExp *Parser::Parse_and_expression()
+{
+    AndExp*ret=new AndExp;
+    ret->exp0=Parse_equality_expression();
+    if(cur()==Band){
+        ++idx;
+        ret->exp1=Parse_equality_expression();
+    }
+    return ret;
+}
+
+EqualityExp *Parser::Parse_equality_expression()
+{
+    EqualityExp*ret=new EqualityExp;
+    ret->exp0=Parse_relational_expression();
+    if(cur()==Eq||cur()==Ne){
+        ret->tp=cur().type;
+        ++idx;
+        ret->exp1=Parse_relational_expression();
+    }
+    return ret;
+}
+
+RelationalExp *Parser::Parse_relational_expression()
+{
+    RelationalExp*ret=new RelationalExp;
+    ret->exp0=Parse_shift_expression();
+    if(cur()==Gt||cur()==Lt||cur()==Ge||cur()==Le){
+        ret->tp=cur().type;
+        ++idx;
+        ret->exp1=Parse_shift_expression();
+    }
+    return ret;
+}
+
+ShiftExp *Parser::Parse_shift_expression()
+{
+    ShiftExp*ret=new ShiftExp;
+    ret->exp0=Parse_additive_expression();
+    if(cur()==Ls||cur()==Rs){
+        ret->tp=cur().type;
+        ++idx;
+        ret->exp1=Parse_additive_expression();
+    }
+    return ret;
+}
+
+AdditiveExp *Parser::Parse_additive_expression()
+{
+    AdditiveExp*ret=new AdditiveExp;
+    ret->exp0=Parse_multiplicative_expression();
+    if(cur()==Add||cur()==Sub){
+        ret->tp=cur().type;
+        ++idx;
+        ret->exp1=Parse_multiplicative_expression();
+    }
+    return ret;
+}
+
+MultiplicativeExp *Parser::Parse_multiplicative_expression()
+{
+    MultiplicativeExp*ret=new MultiplicativeExp;
+    ret->exp0=Parse_cast_expression();
+    if(cur()==Star||cur()==Div||cur()==Mod){
+        ret->tp=cur().type;
+        ++idx;
+        ret->exp1=Parse_cast_expression();
+    }
+    return ret;
+}
+
+CastExp *Parser::Parse_cast_expression()
+{
+    CastExp*ret=new CastExp;
+    if(cur()==Lpb){
+        ++idx;
+        ret->type=ParseTypeMark();
+        if(cur()!=Rpb){
+            Error("in line "<<cur().line<<" pos "<<cur().pos<<" missing \")\"");
+        }
+        ++idx;
+        ret->castExp=Parse_cast_expression();
+    }else{
+        ret->exp=Parse_unary_expression();
+    }
+    return ret;
+}
+
+UnaryExp *Parser::Parse_unary_expression()
+{
+    UnaryExp*ret=new UnaryExp;
+    if(cur()==Inc||cur()==Dec){
+        ret->tp0=cur().type;
+        ++idx;
+        ret->unaryExp=Parse_unary_expression();
+    }
+    else if(cur()==Band||cur()==Star||cur()==Add||cur()==Sub||cur()==Bneg){
+        ret->tp1=cur().type;
+        ++idx;
+        ret->castExp=Parse_cast_expression();
+    }else{
+        ret->postExp=Parse_postfix_expression();
+    }
+    return ret;
+}
+
+PostfixExp *Parser::Parse_postfix_expression()
+{
+    PostfixExp*ret=new PostfixExp;
+    ret->primaryExp=Parse_primary_expression();
+    //parse it's operations
+    Token tk;
+    while((tk=cur())!=0&&(tk==Lsb||tk==Lpb||tk==Dot||tk==Point||tk==Inc||tk==Dec)){
+        ++idx;
+        if(tk==Lsb){
+            ret->op.push_back({PostfixExp::Index,Parse_expression()});
+            if(tk!=Rsb){
+                Error("in line "<<cur().line<<" pos "<<cur().pos<<" missing \"]\"");
+            }
+            ++idx;
+        }else if(tk==Lpb){
+            vector<AssignExp>*arg=new vector<AssignExp>;
+            if(cur()!=Rpb){
+                arg->push_back(*Parse_assignment_expression());
+                while(cur()==Comma){
+                    ++idx;
+                    arg->push_back(*Parse_assignment_expression());
+                }
+            }
+            ret->op.push_back({PostfixExp::Funcall,arg});
+            if(tk!=Rpb){
+                Error("in line "<<cur().line<<" pos "<<cur().pos<<" missing \")\"");
+            }
+            ++idx;
+        }else if(tk==Dot||tk==Point){
+            if(cur()!=ID){
+                Error("expected a member name in line "<<cur().line<<" pos "<<cur().pos);
+            }
+            auto*r=Parse_primary_expression();
+            ret->op.push_back({tk==Dot?PostfixExp::Dot:PostfixExp::Pointer,r});
+            ++idx;
+        }else if(tk==Inc||tk==Dec){
+            ret->op.push_back({tk==Inc?PostfixExp::Add:PostfixExp::Sub,0});
+        }
+    }
+    //
+    return ret;
+}
+
+PrimaryExp *Parser::Parse_primary_expression()
+{
+    PrimaryExp*ret=new PrimaryExp;
+    //
+    if(cur()==ID){
+        ret->id_or_constant=cur().data;
+        ret->tp=ID;
+        ++idx;
+    }
+    else if(cur()==INT_Literal||cur()==CHR_Literal||cur()==STR_Literal){
+        ret->tp=cur().type;
+        ret->id_or_constant=cur().data;
+        ++idx;
+    }
+    else if(cur()==Lpb){
+        ++idx;
+        ret->exp=Parse_expression();
+        if(cur()!=Rpb){
+            Error("Expected \")\" in line "<<cur().line<<" pos "<<cur().pos);
+        }
+        ++idx;
+    }
+    else{
+        Error("in line "<<cur().line<<" pos "<<cur().pos<<" occur error when parse expression");
+    }
+    //
+    return ret;
+}
+
+Expression *Parser::Parse_expression()
+{
+    Expression*ret=new Expression;
+    ret->exp.push_back(*Parse_assignment_expression());
+    while(cur()==Comma){
+        ++idx;
+        ret->exp.push_back(*Parse_assignment_expression());
+    }
+    return ret;
+}
+
+TypeMark Parser::ParseTypeMark()
+{
+    TypeMark ret;
+    ret.tp=*Parse_type_specifier();
+    int beg=idx;
+    while(cur()!=0&&cur()==Star)++idx;
+    ret.pointer=idx-beg;
+    return ret;
+}
+
+IfElseStatment *Parser::Parse_IfElseStatement()
+{
+    IfElseStatment*ret=new IfElseStatment;
+    //
+    if(cur()!=key_if){
+        Error("expected key word if in line "<<cur().line<<" pos "<<cur().pos);
+    }
+    ++idx;
+    if(cur()!=Lpb){
+        Error("expected \"(\" in line "<<cur().line<<" pos "<<cur().pos);
+    }
+    ++idx;
+    ret->exp0=Parse_expression();
+    if(cur()!=Rpb){
+         Error("expected \")\" in line "<<cur().line<<" pos "<<cur().pos);
+    }
+    ++idx;
+    ret->stm0=Parse_Statement();
+    if(cur()==key_else){
+        ++idx;
+        ret->stm1=Parse_Statement();
+    }
+    return ret;
+}
+
+SwitchStatment *Parser::Parse_SwitchStatement()
+{
+    SwitchStatment*ret=new SwitchStatment;
+    if(cur()!=key_switch){
+        Error("expected key word switch in line "<<cur().line<<" pos "<<cur().pos);
+    }
+    ++idx;
+    
+    if(cur()!=Lpb){
+        Error("expected \"(\" in line "<<cur().line<<" pos "<<cur().pos);
+    }
+    ++idx;
+    //
+    ret->exp=Parse_expression();
+    //
+    if(cur()!=Rpb){
+        Error("expected \")\" in line "<<cur().line<<" pos "<<cur().pos);
+    }
+    ++idx;
+    //
+    if(cur()!=Lcb){
+         Error("expected \"{\" in line "<<cur().line<<" pos "<<cur().pos);
+    }
+    ++idx;
+    //
+    set<int>occur;
+    bool defaultOccur=0;
+    while(cur()!=0&&cur()!=Rcb){
+        if(cur()==key_case){
+            ++idx;
+            if(cur()!=INT_Literal&&cur()!=CHR_Literal){
+                Error("the expression after case must be constant in line "<<cur().line<<" pos "<<cur().pos);
+            }
+            int dat;
+            if(cur()==INT_Literal)dat=stoi(cur().data);
+            else dat=CharToInt(cur().data);
+            if(occur.count(dat)){
+                Error("the case branch \""<<(cur()==INT_Literal?dat:char(dat))<<"\" have occur before in line "<<cur().line<<" pos "<<cur().pos);
+            }
+            occur.insert(dat);
+            ++idx;
+            //
+            
+            if(cur()!=Colon){
+                Error("in line "<<cur().line<<" pos "<<cur().pos<<" expected \":\"");
+            }
+            ++idx;
+            ret->body.push_back({0,dat,{}});
+        }
+        else if(cur()==key_default){
+            if(defaultOccur){
+                Error("Only one default branch can occur in the switch statement in line "<<cur().line<<" pos "<<cur().pos);
+            }
+            defaultOccur=1;
+            ++idx;
+             if(cur()!=Colon){
+                Error("in line "<<cur().line<<" pos "<<cur().pos<<" expected \":\"");
+            }
+            ++idx;
+            ret->body.push_back({1,0,{}});
+        }
+        else{
+            Statement*r=Parse_Statement();
+            if(ret->body.size())get<2>(ret->body.back()).push_back(r);
+        }
+    }
+    //
+    if(cur()!=Rcb){
+         Error("expected \"}\" in line "<<cur().line<<" pos "<<cur().pos);
+    }
+    return ret;
+}
+
+WhileStatement *Parser::Parse_WhileStatement()
+{
     return nullptr;
+}
+
+ForStatement *Parser::Parse_ForStatement()
+{
+    return nullptr;
+}
+
+DoWhileStatment *Parser::Parse_DoWhileStatement()
+{
+    return nullptr;
+}
+
+ReturnStatement *Parser::Parse_ReturnStatement()
+{
+    return nullptr;
+}
+
+AsmStatement *Parser::Parse_AsmStatement()
+{
+    return nullptr;
+}
+
+Statement *Parser::Parse_Statement()
+{
+    Statement*ret=new Statement;
+    auto tk=cur();
+    if(tk==Lcb){
+       *ret={Statement::Composed,Parse_composed_statement()};
+    }
+    else if(tk==key_if){
+        *ret={Statement::IfElse,Parse_IfElseStatement()};
+    }
+    else if(tk==key_switch){
+        *ret={Statement::Switch,Parse_SwitchStatement()};
+    }
+    else if(tk==key_while){
+        *ret={Statement::While,Parse_WhileStatement()};
+    }
+    else if(tk==key_for){
+        *ret={Statement::For,Parse_ForStatement()};
+    }
+    else if(tk==key_do){
+        *ret={Statement::DoWhile,Parse_DoWhileStatement()};
+    }
+    else if(tk==key_continue){
+        *ret={Statement::Continue,0};
+        if(next()!=Sem){
+            Error("expected \";\" in line "<<next().line<<" pos "<<next().pos);
+        }
+        idx+=2;
+    }
+    else if(tk==key_break){
+        *ret={Statement::Break,0};
+        if(next()!=Sem){
+            Error("expected \";\" in line "<<next().line<<" pos "<<next().pos);
+        }
+        idx+=2;
+    }
+    else if(tk==key_return){
+        *ret={Statement::Return,Parse_ReturnStatement()};
+    }
+    else if(tk==key_asm){
+        *ret={Statement::Asm,Parse_AsmStatement()};
+    }
+    else{
+        *ret={Statement::Expression,cur()==Sem?0:Parse_expression()};
+        if(cur()!=Sem){
+                Error("expected \";\" in line "<<next().line<<" pos "<<next().pos);
+        }
+        ++idx;
+    }
+   return ret;
 }
 
 bool CheckIsBaseType(const Token &tk)
 {
    if(tk==key_void||tk==key_byte||tk==key_hword||tk==key_word)return 1;
    return 0;
+}
+
+int CharToInt(const string &s)
+{
+    if(s.size()>2||(s.size()==2&&s[0]!='\\')){
+        static_assert("wlh is da sha gou!!!");
+    }
+    if(s.size()==2){
+        char nxt=s[1];
+        switch (nxt)
+        {
+            
+            case 'a':return '\a';
+            case 'b':return '\b';
+            case 'n':return '\n';
+            case 'r':return '\r';
+            case 't':return '\t';
+            default:return nxt;
+        }
+    }
+    return s[1];
 }

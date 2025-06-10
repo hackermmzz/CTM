@@ -2,6 +2,8 @@
 #define PARSER_H
 #include"Lexifier.h"
 #include<string>
+#include<map>
+#include<set>
 ///////////////////////////////
 struct StructInfo;
 struct TypeSpecifier;
@@ -15,7 +17,124 @@ struct DeclaratorType;
 struct ComposedStatment;
 struct AssignExp;
 struct InitializerList;
+struct LogicalOrExp;
+struct LogicalAndExp;
+struct InclusiveOrExp;
+struct ExclusiveOrExp;
+struct AndExp;
+struct EqualityExp;
+struct RelationalExp;
+struct ShiftExp;
+struct AdditiveExp;
+struct MultiplicativeExp;
+struct CastExp;
+struct UnaryExp;
+struct PostfixExp;
+struct PrimaryExp;
+struct TypeMark;
+struct Expression;
+struct ForStatement;
+struct SwitchStatment;
+struct WhileStatement;
+struct DoWhileStatment;
+struct IfElseStatment;
+struct AsmStatement;
+struct ReturnStatement;
+struct Statement;
 ///////////////////////////////
+struct TypeSpecifier{
+    bool _signed;
+    int baseType;//mark down if it is a base type
+    string typeName;
+    StructInfo*si;
+};
+
+struct TypeMark{
+    TypeSpecifier tp;
+    int pointer;
+};
+struct Expression{
+    vector<AssignExp>exp;
+};
+struct PrimaryExp{
+    Expression*exp;
+    int tp;
+    string id_or_constant;
+};
+struct PostfixExp{
+    PrimaryExp*primaryExp;
+    //
+    enum Type{Index,Funcall,Dot,Pointer,Add,Sub};
+    vector<pair<Type,void*>>op;
+    //
+};
+struct UnaryExp{
+    PostfixExp*postExp;
+    //++ --
+    int tp0;
+    UnaryExp*unaryExp;
+    //& * + - ! ~
+    int tp1;
+    CastExp*castExp;
+};
+struct CastExp{
+    TypeMark type;
+    CastExp*castExp;
+    UnaryExp*exp;
+};
+struct MultiplicativeExp{
+    CastExp*exp0;
+    CastExp*exp1;
+    int tp;
+};
+struct AdditiveExp{
+    MultiplicativeExp*exp0;
+    MultiplicativeExp*exp1;
+    int tp;
+};
+struct ShiftExp{
+    AdditiveExp*exp0;
+    AdditiveExp*exp1;
+    int tp;
+};
+struct RelationalExp
+{
+   ShiftExp*exp0;
+   ShiftExp*exp1;
+   int tp;
+};
+
+struct EqualityExp{
+    RelationalExp*exp0;
+    RelationalExp*exp1;
+    int tp;
+};
+struct AndExp{
+    EqualityExp*exp0;
+    EqualityExp*exp1;
+};
+struct ExclusiveOrExp{
+    AndExp*exp0;
+    AndExp*exp1;
+};
+struct InclusiveOrExp{
+    ExclusiveOrExp*exp0;
+    ExclusiveOrExp*exp1;
+};
+struct LogicalAndExp{
+    InclusiveOrExp*exp0;
+    InclusiveOrExp*exp1;
+};
+struct LogicalOrExp{
+    LogicalAndExp*exp0;
+    LogicalAndExp*exp1;
+};
+struct AssignExp{
+    LogicalOrExp*exp0;
+    int op;
+    AssignExp*exp1;
+};
+
 struct InitializerList{
     vector<Initializer*>init;
 };
@@ -28,12 +147,7 @@ struct DeclaratorType{
     vector<int>array;
     DeclaratorType*tp;
 };
-struct TypeSpecifier{
-    bool _signed;
-    int baseType;//mark down if it is a base type
-    string typeName;
-    StructInfo*si;
-};
+
 struct Declarator{
     //对于一个声明符,他要么是指针，要么是数组，要么什么也不是
     string id;
@@ -54,11 +168,42 @@ struct StructInfo
     vector<Declaration>member;
 };
 struct Function{
-    TypeSpecifier retType0;
-    int pointer;
+    TypeMark retType;
     string id;
     vector<Declaration>argument;
     ComposedStatment*body;
+};
+struct Statement{
+    enum{Expression,Composed,For,While,DoWhile,IfElse,Switch,Continue,Break,Return,Asm};
+    int type;
+    void*statement;
+};
+struct ComposedStatment{
+    //declaration为0,statement为1
+    vector<pair<int,void*>>p;
+};
+struct ForStatement{
+
+};
+struct SwitchStatment{
+    Expression*exp;
+    vector<tuple<bool,int,vector<Statement*>>>body;
+};
+struct WhileStatement{
+
+};
+struct DoWhileStatment{
+    
+};
+struct IfElseStatment{
+    Expression*exp0;
+    Statement*stm0,*stm1;
+};
+struct AsmStatement{
+
+};
+struct ReturnStatement{
+
 };
 struct Program{
     //declaration为0,function为1
@@ -85,8 +230,33 @@ struct Parser{
     AssignExp* Parse_assignment_expression();
     InitializerList*Parse_initializerList();
     ComposedStatment* Parse_composed_statement();
+    LogicalOrExp* Parse_logical_or_expression();
+    LogicalAndExp*Parse_logical_and_expression();
+    InclusiveOrExp*Parse_inclusive_or_expression();
+    ExclusiveOrExp*Parse_exclusive_or_expression();
+    AndExp*Parse_and_expression();
+    EqualityExp*Parse_equality_expression();
+    RelationalExp*Parse_relational_expression();
+    ShiftExp*Parse_shift_expression();
+    AdditiveExp* Parse_additive_expression();
+    MultiplicativeExp*Parse_multiplicative_expression();
+    CastExp*Parse_cast_expression();
+    UnaryExp*Parse_unary_expression();
+    PostfixExp*Parse_postfix_expression();
+    PrimaryExp*Parse_primary_expression();
+    Expression*Parse_expression();
+    TypeMark ParseTypeMark();
+    IfElseStatment*Parse_IfElseStatement();
+    SwitchStatment*Parse_SwitchStatement();
+    WhileStatement*Parse_WhileStatement();
+    ForStatement*Parse_ForStatement();
+    DoWhileStatment*Parse_DoWhileStatement();
+    ReturnStatement*Parse_ReturnStatement();
+    AsmStatement*Parse_AsmStatement();
+    Statement*Parse_Statement();
 };
 ///////////////////////////////
 bool CheckIsBaseType(const Token&tk);
+int CharToInt(const string&s);
 ///////////////////////////////
 #endif

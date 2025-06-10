@@ -37,6 +37,9 @@
 *=:Muls
 /=:Divs
 %=:Mods
+<<:Ls
+>>:Rs
+: :Colon
 for:key_for
 while:Key_While
 if:key_if
@@ -86,6 +89,7 @@ struct:key_struct
                      | <asm_statement>
 <expression_statement> ::= [<expression>] ";"
 <selection_statement> ::= "if" "(" <expression> ")" <statement> [ "else" <statement> ]
+                        |"switch" "(" <expression> ")" "{" ["case" int_constant|char_constant |"default" ":" <statement> ]   "}"
 <iteration_statement> ::= "while" "(" <expression> ")" <statement>
                      | "do" <statement> "while" "(" <expression> ")" ";"
                      | "for" "(" [<declaration>|<expression>] ";" [<expression>] ";" [<expression>] ")" <statement>
@@ -94,10 +98,9 @@ struct:key_struct
                      | "return" [<expression>] ";"
 <asm_statement>   ::="asm" "("[<str> {,<str>}]")"
 <expression>      ::= <assignment_expression> { "," <assignment_expression> }
-<assignment_expression> ::= <conditional_expression>
-                     | <unary_expression> <assignment_operator> <assignment_expression>
+<assignment_expression> ::= 
+                        <logical_or_expression> [ <assignment_operator> <assignment_expression> ]
 <assignment_operator> ::= "=" | "*=" | "/=" | "%=" | "+=" | "-=" 
-<conditional_expression> ::= <logical_or_expression> [ "?" <expression> ":" <expression> ]
 <logical_or_expression> ::= <logical_and_expression> { "||" <logical_and_expression> }
 <logical_and_expression> ::= <inclusive_or_expression> { "&&" <inclusive_or_expression> }
 <inclusive_or_expression> ::= <exclusive_or_expression> { "|" <exclusive_or_expression> }
@@ -114,8 +117,6 @@ struct:key_struct
                      | "++" <unary_expression>
                      | "--" <unary_expression>
                      | <unary_operator> <cast_expression>
-                     | "sizeof" "(" <type_specifier> { "*" } ")"
-                     | "sizeof" <unary_expression>
 <unary_operator>   ::= "&" | "*" | "+" | "-" | "~" | "!"
 <postfix_expression> ::= <primary_expression>
                      | <postfix_expression> "[" <expression> "]"

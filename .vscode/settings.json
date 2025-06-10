@@ -29,6 +29,8 @@
         "memory": "cpp",
         "xhash": "cpp",
         "xmemory": "cpp",
-        "xtree": "cpp"
+        "xtree": "cpp",
+        "new": "cpp",
+        "tuple": "cpp"
     }
 }
