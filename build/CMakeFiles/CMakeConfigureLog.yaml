@@ -4,20 +4,20 @@ events:
   -
     kind: "message-v1"
     backtrace:
-      - "/usr/share/cmake-3.28/Modules/CMakeDetermineSystem.cmake:233 (message)"
+      - "C:/Program Files/CMake/share/cmake-3.27/Modules/CMakeDetermineSystem.cmake:211 (message)"
       - "CMakeLists.txt:2 (project)"
     message: |
-      The system is: Linux - 6.2.1-PRoot-Distro - aarch64
+      The system is: Windows - 10.0.26100 - AMD64
   -
     kind: "message-v1"
     backtrace:
-      - "/usr/share/cmake-3.28/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
-      - "/usr/share/cmake-3.28/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
-      - "/usr/share/cmake-3.28/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "C:/Program Files/CMake/share/cmake-3.27/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Program Files/CMake/share/cmake-3.27/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/CMake/share/cmake-3.27/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
       - "CMakeLists.txt:2 (project)"
     message: |
       Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
-      Compiler: /usr/bin/c++ 
+      Compiler: C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/c++.exe 
       Build flags: 
       Id flags:  
       
@@ -25,22 +25,22 @@ events:
       0
       
       
-      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.exe"
       
       The CXX compiler identification is GNU, found in:
-        /root/mmzz/CTM/build/CMakeFiles/3.28.3/CompilerIdCXX/a.out
+        C:/vscode/CTM/build/CMakeFiles/3.27.7/CompilerIdCXX/a.exe
       
   -
     kind: "try_compile-v1"
     backtrace:
-      - "/usr/share/cmake-3.28/Modules/CMakeDetermineCompilerABI.cmake:57 (try_compile)"
-      - "/usr/share/cmake-3.28/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "C:/Program Files/CMake/share/cmake-3.27/Modules/CMakeDetermineCompilerABI.cmake:57 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-3.27/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
       - "CMakeLists.txt:2 (project)"
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "/root/mmzz/CTM/build/CMakeFiles/CMakeScratch/TryCompile-Fx6zNH"
-      binary: "/root/mmzz/CTM/build/CMakeFiles/CMakeScratch/TryCompile-Fx6zNH"
+      source: "C:/vscode/CTM/build/CMakeFiles/CMakeScratch/TryCompile-vpobsw"
+      binary: "C:/vscode/CTM/build/CMakeFiles/CMakeScratch/TryCompile-vpobsw"
     cmakeVariables:
       CMAKE_CXX_FLAGS: ""
       CMAKE_CXX_FLAGS_DEBUG: "-g"
@@ -49,229 +49,258 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: '/root/mmzz/CTM/build/CMakeFiles/CMakeScratch/TryCompile-Fx6zNH'
+        Change Dir: 'C:/vscode/CTM/build/CMakeFiles/CMakeScratch/TryCompile-vpobsw'
         
-        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_603d1/fast
-        /usr/bin/gmake  -f CMakeFiles/cmTC_603d1.dir/build.make CMakeFiles/cmTC_603d1.dir/build
-        gmake[1]: Entering directory '/root/mmzz/CTM/build/CMakeFiles/CMakeScratch/TryCompile-Fx6zNH'
-        Building CXX object CMakeFiles/cmTC_603d1.dir/CMakeCXXCompilerABI.cpp.o
-        /usr/bin/c++   -v -o CMakeFiles/cmTC_603d1.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp
+        Run Build Command(s): "C:/Program Files/CMake/bin/cmake.exe" -E env VERBOSE=1 C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/mingw32-make.exe -f Makefile cmTC_2ffa6/fast
+        C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_2ffa6.dir\\build.make CMakeFiles/cmTC_2ffa6.dir/build
+        mingw32-make.exe[1]: Entering directory 'C:/vscode/CTM/build/CMakeFiles/CMakeScratch/TryCompile-vpobsw'
+        Building CXX object CMakeFiles/cmTC_2ffa6.dir/CMakeCXXCompilerABI.cpp.obj
+        C:\\Qt\\Qt5.9.2\\Tools\\mingw530_32\\bin\\c++.exe   -v -o CMakeFiles\\cmTC_2ffa6.dir\\CMakeCXXCompilerABI.cpp.obj -c "C:\\Program Files\\CMake\\share\\cmake-3.27\\Modules\\CMakeCXXCompilerABI.cpp"
         Using built-in specs.
-        COLLECT_GCC=/usr/bin/c++
-        OFFLOAD_TARGET_NAMES=nvptx-none
-        OFFLOAD_TARGET_DEFAULT=1
-        Target: aarch64-linux-gnu
-        Configured with: ../src/configure -v --with-pkgversion='Ubuntu 13.3.0-6ubuntu2~24.04' --with-bugurl=file:///usr/share/doc/gcc-13/README.Bugs --enable-languages=c,ada,c++,go,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-13 --program-prefix=aarch64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/libexec --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-libstdcxx-backtrace --enable-gnu-unique-object --disable-libquadmath --disable-libquadmath-support --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --enable-fix-cortex-a53-843419 --disable-werror --enable-offload-targets=nvptx-none=/build/gcc-13-Nz4ro4/gcc-13-13.3.0/debian/tmp-nvptx/usr --enable-offload-defaulted --without-cuda-driver --enable-checking=release --build=aarch64-linux-gnu --host=aarch64-linux-gnu --target=aarch64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2
+        COLLECT_GCC=C:\\Qt\\Qt5.9.2\\Tools\\mingw530_32\\bin\\c++.exe
+        Target: i686-w64-mingw32
+        Configured with: ../../../src/gcc-5.3.0/configure --host=i686-w64-mingw32 --build=i686-w64-mingw32 --target=i686-w64-mingw32 --prefix=/mingw32 --with-sysroot=/c/mingw530/i686-530-posix-dwarf-rt_v4-rev0/mingw32 --with-gxx-include-dir=/mingw32/i686-w64-mingw32/include/c++ --enable-shared --enable-static --disable-multilib --enable-languages=c,c++,fortran,lto --enable-libstdcxx-time=yes --enable-threads=posix --enable-libgomp --enable-libatomic --enable-lto --enable-graphite --enable-checking=release --enable-fully-dynamic-string --enable-version-specific-runtime-libs --disable-sjlj-exceptions --with-dwarf2 --disable-isl-version-check --disable-libstdcxx-pch --disable-libstdcxx-debug --enable-bootstrap --disable-rpath --disable-win32-registry --disable-nls --disable-werror --disable-symvers --with-gnu-as --with-gnu-ld --with-arch=i686 --with-tune=generic --with-libiconv --with-system-zlib --with-gmp=/c/mingw530/prerequisites/i686-w64-mingw32-static --with-mpfr=/c/mingw530/prerequisites/i686-w64-mingw32-static --with-mpc=/c/mingw530/prerequisites/i686-w64-mingw32-static --with-isl=/c/mingw530/prerequisites/i686-w64-mingw32-static --with-pkgversion='i686-posix-dwarf-rev0, Built by MinGW-W64 project' --with-bugurl=http://sourceforge.net/projects/mingw-w64 CFLAGS='-O2 -pipe -I/c/mingw530/i686-530-posix-dwarf-rt_v4-rev0/mingw32/opt/include -I/c/mingw530/prerequisites/i686-zlib-static/include -I/c/mingw530/prerequisites/i686-w64-mingw32-static/include' CXXFLAGS='-O2 -pipe -I/c/mingw530/i686-530-posix-dwarf-rt_v4-rev0/mingw32/opt/include -I/c/mingw530/prerequisites/i686-zlib-static/include -I/c/mingw530/prerequisites/i686-w64-mingw32-static/include' CPPFLAGS= LDFLAGS='-pipe -L/c/mingw530/i686-530-posix-dwarf-rt_v4-rev0/mingw32/opt/lib -L/c/mingw530/prerequisites/i686-zlib-static/lib -L/c/mingw530/prerequisites/i686-w64-mingw32-static/lib -Wl,--large-address-aware'
         Thread model: posix
-        Supported LTO compression algorithms: zlib zstd
-        gcc version 13.3.0 (Ubuntu 13.3.0-6ubuntu2~24.04) 
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_603d1.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'CMakeFiles/cmTC_603d1.dir/'
-         /usr/libexec/gcc/aarch64-linux-gnu/13/cc1plus -quiet -v -imultiarch aarch64-linux-gnu -D_GNU_SOURCE /usr/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_603d1.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mlittle-endian -mabi=lp64 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -o /tmp/cc3E72eT.s
-        GNU C++17 (Ubuntu 13.3.0-6ubuntu2~24.04) version 13.3.0 (aarch64-linux-gnu)
-        	compiled by GNU C version 13.3.0, GMP version 6.3.0, MPFR version 4.2.1, MPC version 1.3.1, isl version isl-0.26-GMP
-        
+        gcc version 5.3.0 (i686-posix-dwarf-rev0, Built by MinGW-W64 project) 
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_2ffa6.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=i686'
+         C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../libexec/gcc/i686-w64-mingw32/5.3.0/cc1plus.exe -quiet -v -iprefix C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/ -D_REENTRANT C:\\Program Files\\CMake\\share\\cmake-3.27\\Modules\\CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -mtune=generic -march=i686 -auxbase-strip CMakeFiles\\cmTC_2ffa6.dir\\CMakeCXXCompilerABI.cpp.obj -version -o C:\\Users\\mmzz\\AppData\\Local\\Temp\\ccDYkUSP.s
+        GNU C++ (i686-posix-dwarf-rev0, Built by MinGW-W64 project) version 5.3.0 (i686-w64-mingw32)
+        	compiled by GNU C version 5.3.0, GMP version 6.0.0, MPFR version 3.1.3, MPC version 1.0.3
         GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
-        ignoring duplicate directory "/usr/include/aarch64-linux-gnu/c++/13"
-        ignoring nonexistent directory "/usr/local/include/aarch64-linux-gnu"
-        ignoring nonexistent directory "/usr/lib/gcc/aarch64-linux-gnu/13/include-fixed/aarch64-linux-gnu"
-        ignoring nonexistent directory "/usr/lib/gcc/aarch64-linux-gnu/13/include-fixed"
-        ignoring nonexistent directory "/usr/lib/gcc/aarch64-linux-gnu/13/../../../../aarch64-linux-gnu/include"
+        ignoring duplicate directory "C:/Qt/Qt5.9.2/Tools/mingw530_32/lib/gcc/../../lib/gcc/i686-w64-mingw32/5.3.0/include"
+        ignoring nonexistent directory "C:/mingw530/i686-530-posix-dwarf-rt_v4-rev0/mingw32C:/msys64/mingw32/lib/gcc/i686-w64-mingw32/5.3.0/../../../../include"
+        ignoring duplicate directory "C:/Qt/Qt5.9.2/Tools/mingw530_32/lib/gcc/../../lib/gcc/i686-w64-mingw32/5.3.0/include-fixed"
+        ignoring duplicate directory "C:/Qt/Qt5.9.2/Tools/mingw530_32/lib/gcc/../../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/include"
+        ignoring nonexistent directory "C:/mingw530/i686-530-posix-dwarf-rt_v4-rev0/mingw32/mingw/include"
         #include "..." search starts here:
         #include <...> search starts here:
-         /usr/include/c++/13
-         /usr/include/aarch64-linux-gnu/c++/13
-         /usr/include/c++/13/backward
-         /usr/lib/gcc/aarch64-linux-gnu/13/include
-         /usr/local/include
-         /usr/include/aarch64-linux-gnu
-         /usr/include
+         C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/include
+         C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/include-fixed
+         C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/include
+         C:/Qt/Qt5.9.2/Tools/mingw530_32/lib/gcc/../../i686-w64-mingw32/include/c++
+         C:/Qt/Qt5.9.2/Tools/mingw530_32/lib/gcc/../../i686-w64-mingw32/include/c++/i686-w64-mingw32
+         C:/Qt/Qt5.9.2/Tools/mingw530_32/lib/gcc/../../i686-w64-mingw32/include/c++/backward
         End of search list.
-        Compiler executable checksum: e6eff1ab3426b92d3a3bf1dc105bfcb7
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_603d1.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'CMakeFiles/cmTC_603d1.dir/'
-         as -v -EL -mabi=lp64 -o CMakeFiles/cmTC_603d1.dir/CMakeCXXCompilerABI.cpp.o /tmp/cc3E72eT.s
-        GNU assembler version 2.42 (aarch64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.42
-        COMPILER_PATH=/usr/libexec/gcc/aarch64-linux-gnu/13/:/usr/libexec/gcc/aarch64-linux-gnu/13/:/usr/libexec/gcc/aarch64-linux-gnu/:/usr/lib/gcc/aarch64-linux-gnu/13/:/usr/lib/gcc/aarch64-linux-gnu/
-        LIBRARY_PATH=/usr/lib/gcc/aarch64-linux-gnu/13/:/usr/lib/gcc/aarch64-linux-gnu/13/../../../aarch64-linux-gnu/:/usr/lib/gcc/aarch64-linux-gnu/13/../../../../lib/:/lib/aarch64-linux-gnu/:/lib/../lib/:/usr/lib/aarch64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/aarch64-linux-gnu/13/../../../:/lib/:/usr/lib/
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_603d1.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'CMakeFiles/cmTC_603d1.dir/CMakeCXXCompilerABI.cpp.'
-        Linking CXX executable cmTC_603d1
-        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_603d1.dir/link.txt --verbose=1
-        /usr/bin/c++  -v CMakeFiles/cmTC_603d1.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_603d1 
+        GNU C++ (i686-posix-dwarf-rev0, Built by MinGW-W64 project) version 5.3.0 (i686-w64-mingw32)
+        	compiled by GNU C version 5.3.0, GMP version 6.0.0, MPFR version 3.1.3, MPC version 1.0.3
+        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+        Compiler executable checksum: 9591444d47dc6176d5975500adcf41e9
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_2ffa6.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=i686'
+         C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/bin/as.exe -v -o CMakeFiles\\cmTC_2ffa6.dir\\CMakeCXXCompilerABI.cpp.obj C:\\Users\\mmzz\\AppData\\Local\\Temp\\ccDYkUSP.s
+        GNU assembler version 2.25 (i686-w64-mingw32) using BFD version (GNU Binutils) 2.25
+        COMPILER_PATH=C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../libexec/gcc/i686-w64-mingw32/5.3.0/;C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../libexec/gcc/;C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/bin/
+        LIBRARY_PATH=C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/;C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/;C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/;C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../lib/;C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/;C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_2ffa6.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=i686'
+        Linking CXX executable cmTC_2ffa6.exe
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\cmTC_2ffa6.dir\\link.txt --verbose=1
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E rm -f CMakeFiles\\cmTC_2ffa6.dir/objects.a
+        C:\\Qt\\Qt5.9.2\\Tools\\mingw530_32\\bin\\ar.exe qc CMakeFiles\\cmTC_2ffa6.dir/objects.a @CMakeFiles\\cmTC_2ffa6.dir\\objects1.rsp
+        C:\\Qt\\Qt5.9.2\\Tools\\mingw530_32\\bin\\c++.exe  -v -Wl,--whole-archive CMakeFiles\\cmTC_2ffa6.dir/objects.a -Wl,--no-whole-archive -o cmTC_2ffa6.exe -Wl,--out-implib,libcmTC_2ffa6.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
         Using built-in specs.
-        COLLECT_GCC=/usr/bin/c++
-        COLLECT_LTO_WRAPPER=/usr/libexec/gcc/aarch64-linux-gnu/13/lto-wrapper
-        OFFLOAD_TARGET_NAMES=nvptx-none
-        OFFLOAD_TARGET_DEFAULT=1
-        Target: aarch64-linux-gnu
-        Configured with: ../src/configure -v --with-pkgversion='Ubuntu 13.3.0-6ubuntu2~24.04' --with-bugurl=file:///usr/share/doc/gcc-13/README.Bugs --enable-languages=c,ada,c++,go,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-13 --program-prefix=aarch64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/libexec --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-libstdcxx-backtrace --enable-gnu-unique-object --disable-libquadmath --disable-libquadmath-support --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --enable-fix-cortex-a53-843419 --disable-werror --enable-offload-targets=nvptx-none=/build/gcc-13-Nz4ro4/gcc-13-13.3.0/debian/tmp-nvptx/usr --enable-offload-defaulted --without-cuda-driver --enable-checking=release --build=aarch64-linux-gnu --host=aarch64-linux-gnu --target=aarch64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2
+        COLLECT_GCC=C:\\Qt\\Qt5.9.2\\Tools\\mingw530_32\\bin\\c++.exe
+        COLLECT_LTO_WRAPPER=C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../libexec/gcc/i686-w64-mingw32/5.3.0/lto-wrapper.exe
+        Target: i686-w64-mingw32
+        Configured with: ../../../src/gcc-5.3.0/configure --host=i686-w64-mingw32 --build=i686-w64-mingw32 --target=i686-w64-mingw32 --prefix=/mingw32 --with-sysroot=/c/mingw530/i686-530-posix-dwarf-rt_v4-rev0/mingw32 --with-gxx-include-dir=/mingw32/i686-w64-mingw32/include/c++ --enable-shared --enable-static --disable-multilib --enable-languages=c,c++,fortran,lto --enable-libstdcxx-time=yes --enable-threads=posix --enable-libgomp --enable-libatomic --enable-lto --enable-graphite --enable-checking=release --enable-fully-dynamic-string --enable-version-specific-runtime-libs --disable-sjlj-exceptions --with-dwarf2 --disable-isl-version-check --disable-libstdcxx-pch --disable-libstdcxx-debug --enable-bootstrap --disable-rpath --disable-win32-registry --disable-nls --disable-werror --disable-symvers --with-gnu-as --with-gnu-ld --with-arch=i686 --with-tune=generic --with-libiconv --with-system-zlib --with-gmp=/c/mingw530/prerequisites/i686-w64-mingw32-static --with-mpfr=/c/mingw530/prerequisites/i686-w64-mingw32-static --with-mpc=/c/mingw530/prerequisites/i686-w64-mingw32-static --with-isl=/c/mingw530/prerequisites/i686-w64-mingw32-static --with-pkgversion='i686-posix-dwarf-rev0, Built by MinGW-W64 project' --with-bugurl=http://sourceforge.net/projects/mingw-w64 CFLAGS='-O2 -pipe -I/c/mingw530/i686-530-posix-dwarf-rt_v4-rev0/mingw32/opt/include -I/c/mingw530/prerequisites/i686-zlib-static/include -I/c/mingw530/prerequisites/i686-w64-mingw32-static/include' CXXFLAGS='-O2 -pipe -I/c/mingw530/i686-530-posix-dwarf-rt_v4-rev0/mingw32/opt/include -I/c/mingw530/prerequisites/i686-zlib-static/include -I/c/mingw530/prerequisites/i686-w64-mingw32-static/include' CPPFLAGS= LDFLAGS='-pipe -L/c/mingw530/i686-530-posix-dwarf-rt_v4-rev0/mingw32/opt/lib -L/c/mingw530/prerequisites/i686-zlib-static/lib -L/c/mingw530/prerequisites/i686-w64-mingw32-static/lib -Wl,--large-address-aware'
         Thread model: posix
-        Supported LTO compression algorithms: zlib zstd
-        gcc version 13.3.0 (Ubuntu 13.3.0-6ubuntu2~24.04) 
-        COMPILER_PATH=/usr/libexec/gcc/aarch64-linux-gnu/13/:/usr/libexec/gcc/aarch64-linux-gnu/13/:/usr/libexec/gcc/aarch64-linux-gnu/:/usr/lib/gcc/aarch64-linux-gnu/13/:/usr/lib/gcc/aarch64-linux-gnu/
-        LIBRARY_PATH=/usr/lib/gcc/aarch64-linux-gnu/13/:/usr/lib/gcc/aarch64-linux-gnu/13/../../../aarch64-linux-gnu/:/usr/lib/gcc/aarch64-linux-gnu/13/../../../../lib/:/lib/aarch64-linux-gnu/:/lib/../lib/:/usr/lib/aarch64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/aarch64-linux-gnu/13/../../../:/lib/:/usr/lib/
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_603d1' '-shared-libgcc' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'cmTC_603d1.'
-         /usr/libexec/gcc/aarch64-linux-gnu/13/collect2 -plugin /usr/libexec/gcc/aarch64-linux-gnu/13/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/aarch64-linux-gnu/13/lto-wrapper -plugin-opt=-fresolution=/tmp/ccOg84y9.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu --as-needed -dynamic-linker /lib/ld-linux-aarch64.so.1 -X -EL -maarch64linux --fix-cortex-a53-843419 -pie -z now -z relro -o cmTC_603d1 /usr/lib/gcc/aarch64-linux-gnu/13/../../../aarch64-linux-gnu/Scrt1.o /usr/lib/gcc/aarch64-linux-gnu/13/../../../aarch64-linux-gnu/crti.o /usr/lib/gcc/aarch64-linux-gnu/13/crtbeginS.o -L/usr/lib/gcc/aarch64-linux-gnu/13 -L/usr/lib/gcc/aarch64-linux-gnu/13/../../../aarch64-linux-gnu -L/usr/lib/gcc/aarch64-linux-gnu/13/../../../../lib -L/lib/aarch64-linux-gnu -L/lib/../lib -L/usr/lib/aarch64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/aarch64-linux-gnu/13/../../.. CMakeFiles/cmTC_603d1.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/aarch64-linux-gnu/13/crtendS.o /usr/lib/gcc/aarch64-linux-gnu/13/../../../aarch64-linux-gnu/crtn.o
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_603d1' '-shared-libgcc' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'cmTC_603d1.'
-        gmake[1]: Leaving directory '/root/mmzz/CTM/build/CMakeFiles/CMakeScratch/TryCompile-Fx6zNH'
+        gcc version 5.3.0 (i686-posix-dwarf-rev0, Built by MinGW-W64 project) 
+        COMPILER_PATH=C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../libexec/gcc/i686-w64-mingw32/5.3.0/;C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../libexec/gcc/;C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/bin/
+        LIBRARY_PATH=C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/;C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/;C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/;C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../lib/;C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/;C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_2ffa6.exe' '-shared-libgcc' '-mtune=generic' '-march=i686'
+         C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../libexec/gcc/i686-w64-mingw32/5.3.0/collect2.exe -plugin C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../libexec/gcc/i686-w64-mingw32/5.3.0/liblto_plugin-0.dll -plugin-opt=C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../libexec/gcc/i686-w64-mingw32/5.3.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\mmzz\\AppData\\Local\\Temp\\ccfDHE9A.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-liconv -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt --sysroot=C:/mingw530/i686-530-posix-dwarf-rt_v4-rev0/mingw32 -m i386pe -Bdynamic -u ___register_frame_info -u ___deregister_frame_info -o cmTC_2ffa6.exe C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/crt2.o C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/crtbegin.o -LC:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0 -LC:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc -LC:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib -LC:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../lib -LC:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib -LC:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../.. --whole-archive CMakeFiles\\cmTC_2ffa6.dir/objects.a --no-whole-archive --out-implib libcmTC_2ffa6.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/crtend.o
+        mingw32-make.exe[1]: Leaving directory 'C:/vscode/CTM/build/CMakeFiles/CMakeScratch/TryCompile-vpobsw'
         
       exitCode: 0
   -
     kind: "message-v1"
     backtrace:
-      - "/usr/share/cmake-3.28/Modules/CMakeDetermineCompilerABI.cmake:127 (message)"
-      - "/usr/share/cmake-3.28/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "C:/Program Files/CMake/share/cmake-3.27/Modules/CMakeDetermineCompilerABI.cmake:127 (message)"
+      - "C:/Program Files/CMake/share/cmake-3.27/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
       - "CMakeLists.txt:2 (project)"
     message: |
       Parsed CXX implicit include dir info: rv=done
         found start of include info
         found start of implicit include info
-          add: [/usr/include/c++/13]
-          add: [/usr/include/aarch64-linux-gnu/c++/13]
-          add: [/usr/include/c++/13/backward]
-          add: [/usr/lib/gcc/aarch64-linux-gnu/13/include]
-          add: [/usr/local/include]
-          add: [/usr/include/aarch64-linux-gnu]
-          add: [/usr/include]
+          add: [C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/include]
+          add: [C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/include-fixed]
+          add: [C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/include]
+          add: [C:/Qt/Qt5.9.2/Tools/mingw530_32/lib/gcc/../../i686-w64-mingw32/include/c++]
+          add: [C:/Qt/Qt5.9.2/Tools/mingw530_32/lib/gcc/../../i686-w64-mingw32/include/c++/i686-w64-mingw32]
+          add: [C:/Qt/Qt5.9.2/Tools/mingw530_32/lib/gcc/../../i686-w64-mingw32/include/c++/backward]
         end of search list found
-        collapse include dir [/usr/include/c++/13] ==> [/usr/include/c++/13]
-        collapse include dir [/usr/include/aarch64-linux-gnu/c++/13] ==> [/usr/include/aarch64-linux-gnu/c++/13]
-        collapse include dir [/usr/include/c++/13/backward] ==> [/usr/include/c++/13/backward]
-        collapse include dir [/usr/lib/gcc/aarch64-linux-gnu/13/include] ==> [/usr/lib/gcc/aarch64-linux-gnu/13/include]
-        collapse include dir [/usr/local/include] ==> [/usr/local/include]
-        collapse include dir [/usr/include/aarch64-linux-gnu] ==> [/usr/include/aarch64-linux-gnu]
-        collapse include dir [/usr/include] ==> [/usr/include]
-        implicit include dirs: [/usr/include/c++/13;/usr/include/aarch64-linux-gnu/c++/13;/usr/include/c++/13/backward;/usr/lib/gcc/aarch64-linux-gnu/13/include;/usr/local/include;/usr/include/aarch64-linux-gnu;/usr/include]
+        collapse include dir [C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/include] ==> [C:/Qt/Qt5.9.2/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include]
+        collapse include dir [C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/include-fixed] ==> [C:/Qt/Qt5.9.2/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed]
+        collapse include dir [C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/include] ==> [C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include]
+        collapse include dir [C:/Qt/Qt5.9.2/Tools/mingw530_32/lib/gcc/../../i686-w64-mingw32/include/c++] ==> [C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++]
+        collapse include dir [C:/Qt/Qt5.9.2/Tools/mingw530_32/lib/gcc/../../i686-w64-mingw32/include/c++/i686-w64-mingw32] ==> [C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32]
+        collapse include dir [C:/Qt/Qt5.9.2/Tools/mingw530_32/lib/gcc/../../i686-w64-mingw32/include/c++/backward] ==> [C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward]
+        implicit include dirs: [C:/Qt/Qt5.9.2/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include;C:/Qt/Qt5.9.2/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed;C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include;C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++;C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32;C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward]
       
       
   -
     kind: "message-v1"
     backtrace:
-      - "/usr/share/cmake-3.28/Modules/CMakeDetermineCompilerABI.cmake:159 (message)"
-      - "/usr/share/cmake-3.28/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "C:/Program Files/CMake/share/cmake-3.27/Modules/CMakeDetermineCompilerABI.cmake:152 (message)"
+      - "C:/Program Files/CMake/share/cmake-3.27/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
       - "CMakeLists.txt:2 (project)"
     message: |
       Parsed CXX implicit link information:
-        link line regex: [^( *|.*[/\\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
-        ignore line: [Change Dir: '/root/mmzz/CTM/build/CMakeFiles/CMakeScratch/TryCompile-Fx6zNH']
+        link line regex: [^( *|.*[/\\])(ld\\.exe|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        ignore line: [Change Dir: 'C:/vscode/CTM/build/CMakeFiles/CMakeScratch/TryCompile-vpobsw']
         ignore line: []
-        ignore line: [Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_603d1/fast]
-        ignore line: [/usr/bin/gmake  -f CMakeFiles/cmTC_603d1.dir/build.make CMakeFiles/cmTC_603d1.dir/build]
-        ignore line: [gmake[1]: Entering directory '/root/mmzz/CTM/build/CMakeFiles/CMakeScratch/TryCompile-Fx6zNH']
-        ignore line: [Building CXX object CMakeFiles/cmTC_603d1.dir/CMakeCXXCompilerABI.cpp.o]
-        ignore line: [/usr/bin/c++   -v -o CMakeFiles/cmTC_603d1.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [Run Build Command(s): "C:/Program Files/CMake/bin/cmake.exe" -E env VERBOSE=1 C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/mingw32-make.exe -f Makefile cmTC_2ffa6/fast]
+        ignore line: [C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_2ffa6.dir\\build.make CMakeFiles/cmTC_2ffa6.dir/build]
+        ignore line: [mingw32-make.exe[1]: Entering directory 'C:/vscode/CTM/build/CMakeFiles/CMakeScratch/TryCompile-vpobsw']
+        ignore line: [Building CXX object CMakeFiles/cmTC_2ffa6.dir/CMakeCXXCompilerABI.cpp.obj]
+        ignore line: [C:\\Qt\\Qt5.9.2\\Tools\\mingw530_32\\bin\\c++.exe   -v -o CMakeFiles\\cmTC_2ffa6.dir\\CMakeCXXCompilerABI.cpp.obj -c "C:\\Program Files\\CMake\\share\\cmake-3.27\\Modules\\CMakeCXXCompilerABI.cpp"]
         ignore line: [Using built-in specs.]
-        ignore line: [COLLECT_GCC=/usr/bin/c++]
-        ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none]
-        ignore line: [OFFLOAD_TARGET_DEFAULT=1]
-        ignore line: [Target: aarch64-linux-gnu]
-        ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 13.3.0-6ubuntu2~24.04' --with-bugurl=file:///usr/share/doc/gcc-13/README.Bugs --enable-languages=c ada c++ go d fortran objc obj-c++ m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-13 --program-prefix=aarch64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/libexec --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-libstdcxx-backtrace --enable-gnu-unique-object --disable-libquadmath --disable-libquadmath-support --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --enable-fix-cortex-a53-843419 --disable-werror --enable-offload-targets=nvptx-none=/build/gcc-13-Nz4ro4/gcc-13-13.3.0/debian/tmp-nvptx/usr --enable-offload-defaulted --without-cuda-driver --enable-checking=release --build=aarch64-linux-gnu --host=aarch64-linux-gnu --target=aarch64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2]
+        ignore line: [COLLECT_GCC=C:\\Qt\\Qt5.9.2\\Tools\\mingw530_32\\bin\\c++.exe]
+        ignore line: [Target: i686-w64-mingw32]
+        ignore line: [Configured with: ../../../src/gcc-5.3.0/configure --host=i686-w64-mingw32 --build=i686-w64-mingw32 --target=i686-w64-mingw32 --prefix=/mingw32 --with-sysroot=/c/mingw530/i686-530-posix-dwarf-rt_v4-rev0/mingw32 --with-gxx-include-dir=/mingw32/i686-w64-mingw32/include/c++ --enable-shared --enable-static --disable-multilib --enable-languages=c,c++,fortran,lto --enable-libstdcxx-time=yes --enable-threads=posix --enable-libgomp --enable-libatomic --enable-lto --enable-graphite --enable-checking=release --enable-fully-dynamic-string --enable-version-specific-runtime-libs --disable-sjlj-exceptions --with-dwarf2 --disable-isl-version-check --disable-libstdcxx-pch --disable-libstdcxx-debug --enable-bootstrap --disable-rpath --disable-win32-registry --disable-nls --disable-werror --disable-symvers --with-gnu-as --with-gnu-ld --with-arch=i686 --with-tune=generic --with-libiconv --with-system-zlib --with-gmp=/c/mingw530/prerequisites/i686-w64-mingw32-static --with-mpfr=/c/mingw530/prerequisites/i686-w64-mingw32-static --with-mpc=/c/mingw530/prerequisites/i686-w64-mingw32-static --with-isl=/c/mingw530/prerequisites/i686-w64-mingw32-static --with-pkgversion='i686-posix-dwarf-rev0, Built by MinGW-W64 project' --with-bugurl=http://sourceforge.net/projects/mingw-w64 CFLAGS='-O2 -pipe -I/c/mingw530/i686-530-posix-dwarf-rt_v4-rev0/mingw32/opt/include -I/c/mingw530/prerequisites/i686-zlib-static/include -I/c/mingw530/prerequisites/i686-w64-mingw32-static/include' CXXFLAGS='-O2 -pipe -I/c/mingw530/i686-530-posix-dwarf-rt_v4-rev0/mingw32/opt/include -I/c/mingw530/prerequisites/i686-zlib-static/include -I/c/mingw530/prerequisites/i686-w64-mingw32-static/include' CPPFLAGS= LDFLAGS='-pipe -L/c/mingw530/i686-530-posix-dwarf-rt_v4-rev0/mingw32/opt/lib -L/c/mingw530/prerequisites/i686-zlib-static/lib -L/c/mingw530/prerequisites/i686-w64-mingw32-static/lib -Wl,--large-address-aware']
         ignore line: [Thread model: posix]
-        ignore line: [Supported LTO compression algorithms: zlib zstd]
-        ignore line: [gcc version 13.3.0 (Ubuntu 13.3.0-6ubuntu2~24.04) ]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_603d1.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'CMakeFiles/cmTC_603d1.dir/']
-        ignore line: [ /usr/libexec/gcc/aarch64-linux-gnu/13/cc1plus -quiet -v -imultiarch aarch64-linux-gnu -D_GNU_SOURCE /usr/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_603d1.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mlittle-endian -mabi=lp64 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -o /tmp/cc3E72eT.s]
-        ignore line: [GNU C++17 (Ubuntu 13.3.0-6ubuntu2~24.04) version 13.3.0 (aarch64-linux-gnu)]
-        ignore line: [	compiled by GNU C version 13.3.0  GMP version 6.3.0  MPFR version 4.2.1  MPC version 1.3.1  isl version isl-0.26-GMP]
-        ignore line: []
+        ignore line: [gcc version 5.3.0 (i686-posix-dwarf-rev0  Built by MinGW-W64 project) ]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_2ffa6.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=i686']
+        ignore line: [ C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../libexec/gcc/i686-w64-mingw32/5.3.0/cc1plus.exe -quiet -v -iprefix C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/ -D_REENTRANT C:\\Program Files\\CMake\\share\\cmake-3.27\\Modules\\CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -mtune=generic -march=i686 -auxbase-strip CMakeFiles\\cmTC_2ffa6.dir\\CMakeCXXCompilerABI.cpp.obj -version -o C:\\Users\\mmzz\\AppData\\Local\\Temp\\ccDYkUSP.s]
+        ignore line: [GNU C++ (i686-posix-dwarf-rev0  Built by MinGW-W64 project) version 5.3.0 (i686-w64-mingw32)]
+        ignore line: [	compiled by GNU C version 5.3.0  GMP version 6.0.0  MPFR version 3.1.3  MPC version 1.0.3]
         ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
-        ignore line: [ignoring duplicate directory "/usr/include/aarch64-linux-gnu/c++/13"]
-        ignore line: [ignoring nonexistent directory "/usr/local/include/aarch64-linux-gnu"]
-        ignore line: [ignoring nonexistent directory "/usr/lib/gcc/aarch64-linux-gnu/13/include-fixed/aarch64-linux-gnu"]
-        ignore line: [ignoring nonexistent directory "/usr/lib/gcc/aarch64-linux-gnu/13/include-fixed"]
-        ignore line: [ignoring nonexistent directory "/usr/lib/gcc/aarch64-linux-gnu/13/../../../../aarch64-linux-gnu/include"]
+        ignore line: [ignoring duplicate directory "C:/Qt/Qt5.9.2/Tools/mingw530_32/lib/gcc/../../lib/gcc/i686-w64-mingw32/5.3.0/include"]
+        ignore line: [ignoring nonexistent directory "C:/mingw530/i686-530-posix-dwarf-rt_v4-rev0/mingw32C:/msys64/mingw32/lib/gcc/i686-w64-mingw32/5.3.0/../../../../include"]
+        ignore line: [ignoring duplicate directory "C:/Qt/Qt5.9.2/Tools/mingw530_32/lib/gcc/../../lib/gcc/i686-w64-mingw32/5.3.0/include-fixed"]
+        ignore line: [ignoring duplicate directory "C:/Qt/Qt5.9.2/Tools/mingw530_32/lib/gcc/../../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/include"]
+        ignore line: [ignoring nonexistent directory "C:/mingw530/i686-530-posix-dwarf-rt_v4-rev0/mingw32/mingw/include"]
         ignore line: [#include "..." search starts here:]
         ignore line: [#include <...> search starts here:]
-        ignore line: [ /usr/include/c++/13]
-        ignore line: [ /usr/include/aarch64-linux-gnu/c++/13]
-        ignore line: [ /usr/include/c++/13/backward]
-        ignore line: [ /usr/lib/gcc/aarch64-linux-gnu/13/include]
-        ignore line: [ /usr/local/include]
-        ignore line: [ /usr/include/aarch64-linux-gnu]
-        ignore line: [ /usr/include]
+        ignore line: [ C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/include]
+        ignore line: [ C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/include-fixed]
+        ignore line: [ C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/include]
+        ignore line: [ C:/Qt/Qt5.9.2/Tools/mingw530_32/lib/gcc/../../i686-w64-mingw32/include/c++]
+        ignore line: [ C:/Qt/Qt5.9.2/Tools/mingw530_32/lib/gcc/../../i686-w64-mingw32/include/c++/i686-w64-mingw32]
+        ignore line: [ C:/Qt/Qt5.9.2/Tools/mingw530_32/lib/gcc/../../i686-w64-mingw32/include/c++/backward]
         ignore line: [End of search list.]
-        ignore line: [Compiler executable checksum: e6eff1ab3426b92d3a3bf1dc105bfcb7]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_603d1.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'CMakeFiles/cmTC_603d1.dir/']
-        ignore line: [ as -v -EL -mabi=lp64 -o CMakeFiles/cmTC_603d1.dir/CMakeCXXCompilerABI.cpp.o /tmp/cc3E72eT.s]
-        ignore line: [GNU assembler version 2.42 (aarch64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.42]
-        ignore line: [COMPILER_PATH=/usr/libexec/gcc/aarch64-linux-gnu/13/:/usr/libexec/gcc/aarch64-linux-gnu/13/:/usr/libexec/gcc/aarch64-linux-gnu/:/usr/lib/gcc/aarch64-linux-gnu/13/:/usr/lib/gcc/aarch64-linux-gnu/]
-        ignore line: [LIBRARY_PATH=/usr/lib/gcc/aarch64-linux-gnu/13/:/usr/lib/gcc/aarch64-linux-gnu/13/../../../aarch64-linux-gnu/:/usr/lib/gcc/aarch64-linux-gnu/13/../../../../lib/:/lib/aarch64-linux-gnu/:/lib/../lib/:/usr/lib/aarch64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/aarch64-linux-gnu/13/../../../:/lib/:/usr/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_603d1.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'CMakeFiles/cmTC_603d1.dir/CMakeCXXCompilerABI.cpp.']
-        ignore line: [Linking CXX executable cmTC_603d1]
-        ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_603d1.dir/link.txt --verbose=1]
-        ignore line: [/usr/bin/c++  -v CMakeFiles/cmTC_603d1.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_603d1 ]
+        ignore line: [GNU C++ (i686-posix-dwarf-rev0  Built by MinGW-W64 project) version 5.3.0 (i686-w64-mingw32)]
+        ignore line: [	compiled by GNU C version 5.3.0  GMP version 6.0.0  MPFR version 3.1.3  MPC version 1.0.3]
+        ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+        ignore line: [Compiler executable checksum: 9591444d47dc6176d5975500adcf41e9]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_2ffa6.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=i686']
+        ignore line: [ C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/bin/as.exe -v -o CMakeFiles\\cmTC_2ffa6.dir\\CMakeCXXCompilerABI.cpp.obj C:\\Users\\mmzz\\AppData\\Local\\Temp\\ccDYkUSP.s]
+        ignore line: [GNU assembler version 2.25 (i686-w64-mingw32) using BFD version (GNU Binutils) 2.25]
+        ignore line: [COMPILER_PATH=C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../libexec/gcc/i686-w64-mingw32/5.3.0/]
+        ignore line: [C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../libexec/gcc/]
+        ignore line: [C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/bin/]
+        ignore line: [LIBRARY_PATH=C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/]
+        ignore line: [C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/]
+        ignore line: [C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/]
+        ignore line: [C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../lib/]
+        ignore line: [C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/]
+        ignore line: [C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_2ffa6.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=i686']
+        ignore line: [Linking CXX executable cmTC_2ffa6.exe]
+        ignore line: ["C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\cmTC_2ffa6.dir\\link.txt --verbose=1]
+        ignore line: ["C:\\Program Files\\CMake\\bin\\cmake.exe" -E rm -f CMakeFiles\\cmTC_2ffa6.dir/objects.a]
+        ignore line: [C:\\Qt\\Qt5.9.2\\Tools\\mingw530_32\\bin\\ar.exe qc CMakeFiles\\cmTC_2ffa6.dir/objects.a @CMakeFiles\\cmTC_2ffa6.dir\\objects1.rsp]
+        ignore line: [C:\\Qt\\Qt5.9.2\\Tools\\mingw530_32\\bin\\c++.exe  -v -Wl --whole-archive CMakeFiles\\cmTC_2ffa6.dir/objects.a -Wl --no-whole-archive -o cmTC_2ffa6.exe -Wl --out-implib libcmTC_2ffa6.dll.a -Wl --major-image-version 0 --minor-image-version 0 ]
         ignore line: [Using built-in specs.]
-        ignore line: [COLLECT_GCC=/usr/bin/c++]
-        ignore line: [COLLECT_LTO_WRAPPER=/usr/libexec/gcc/aarch64-linux-gnu/13/lto-wrapper]
-        ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none]
-        ignore line: [OFFLOAD_TARGET_DEFAULT=1]
-        ignore line: [Target: aarch64-linux-gnu]
-        ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 13.3.0-6ubuntu2~24.04' --with-bugurl=file:///usr/share/doc/gcc-13/README.Bugs --enable-languages=c ada c++ go d fortran objc obj-c++ m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-13 --program-prefix=aarch64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/libexec --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-libstdcxx-backtrace --enable-gnu-unique-object --disable-libquadmath --disable-libquadmath-support --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --enable-fix-cortex-a53-843419 --disable-werror --enable-offload-targets=nvptx-none=/build/gcc-13-Nz4ro4/gcc-13-13.3.0/debian/tmp-nvptx/usr --enable-offload-defaulted --without-cuda-driver --enable-checking=release --build=aarch64-linux-gnu --host=aarch64-linux-gnu --target=aarch64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2]
+        ignore line: [COLLECT_GCC=C:\\Qt\\Qt5.9.2\\Tools\\mingw530_32\\bin\\c++.exe]
+        ignore line: [COLLECT_LTO_WRAPPER=C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../libexec/gcc/i686-w64-mingw32/5.3.0/lto-wrapper.exe]
+        ignore line: [Target: i686-w64-mingw32]
+        ignore line: [Configured with: ../../../src/gcc-5.3.0/configure --host=i686-w64-mingw32 --build=i686-w64-mingw32 --target=i686-w64-mingw32 --prefix=/mingw32 --with-sysroot=/c/mingw530/i686-530-posix-dwarf-rt_v4-rev0/mingw32 --with-gxx-include-dir=/mingw32/i686-w64-mingw32/include/c++ --enable-shared --enable-static --disable-multilib --enable-languages=c,c++,fortran,lto --enable-libstdcxx-time=yes --enable-threads=posix --enable-libgomp --enable-libatomic --enable-lto --enable-graphite --enable-checking=release --enable-fully-dynamic-string --enable-version-specific-runtime-libs --disable-sjlj-exceptions --with-dwarf2 --disable-isl-version-check --disable-libstdcxx-pch --disable-libstdcxx-debug --enable-bootstrap --disable-rpath --disable-win32-registry --disable-nls --disable-werror --disable-symvers --with-gnu-as --with-gnu-ld --with-arch=i686 --with-tune=generic --with-libiconv --with-system-zlib --with-gmp=/c/mingw530/prerequisites/i686-w64-mingw32-static --with-mpfr=/c/mingw530/prerequisites/i686-w64-mingw32-static --with-mpc=/c/mingw530/prerequisites/i686-w64-mingw32-static --with-isl=/c/mingw530/prerequisites/i686-w64-mingw32-static --with-pkgversion='i686-posix-dwarf-rev0, Built by MinGW-W64 project' --with-bugurl=http://sourceforge.net/projects/mingw-w64 CFLAGS='-O2 -pipe -I/c/mingw530/i686-530-posix-dwarf-rt_v4-rev0/mingw32/opt/include -I/c/mingw530/prerequisites/i686-zlib-static/include -I/c/mingw530/prerequisites/i686-w64-mingw32-static/include' CXXFLAGS='-O2 -pipe -I/c/mingw530/i686-530-posix-dwarf-rt_v4-rev0/mingw32/opt/include -I/c/mingw530/prerequisites/i686-zlib-static/include -I/c/mingw530/prerequisites/i686-w64-mingw32-static/include' CPPFLAGS= LDFLAGS='-pipe -L/c/mingw530/i686-530-posix-dwarf-rt_v4-rev0/mingw32/opt/lib -L/c/mingw530/prerequisites/i686-zlib-static/lib -L/c/mingw530/prerequisites/i686-w64-mingw32-static/lib -Wl,--large-address-aware']
         ignore line: [Thread model: posix]
-        ignore line: [Supported LTO compression algorithms: zlib zstd]
-        ignore line: [gcc version 13.3.0 (Ubuntu 13.3.0-6ubuntu2~24.04) ]
-        ignore line: [COMPILER_PATH=/usr/libexec/gcc/aarch64-linux-gnu/13/:/usr/libexec/gcc/aarch64-linux-gnu/13/:/usr/libexec/gcc/aarch64-linux-gnu/:/usr/lib/gcc/aarch64-linux-gnu/13/:/usr/lib/gcc/aarch64-linux-gnu/]
-        ignore line: [LIBRARY_PATH=/usr/lib/gcc/aarch64-linux-gnu/13/:/usr/lib/gcc/aarch64-linux-gnu/13/../../../aarch64-linux-gnu/:/usr/lib/gcc/aarch64-linux-gnu/13/../../../../lib/:/lib/aarch64-linux-gnu/:/lib/../lib/:/usr/lib/aarch64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/aarch64-linux-gnu/13/../../../:/lib/:/usr/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_603d1' '-shared-libgcc' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'cmTC_603d1.']
-        link line: [ /usr/libexec/gcc/aarch64-linux-gnu/13/collect2 -plugin /usr/libexec/gcc/aarch64-linux-gnu/13/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/aarch64-linux-gnu/13/lto-wrapper -plugin-opt=-fresolution=/tmp/ccOg84y9.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu --as-needed -dynamic-linker /lib/ld-linux-aarch64.so.1 -X -EL -maarch64linux --fix-cortex-a53-843419 -pie -z now -z relro -o cmTC_603d1 /usr/lib/gcc/aarch64-linux-gnu/13/../../../aarch64-linux-gnu/Scrt1.o /usr/lib/gcc/aarch64-linux-gnu/13/../../../aarch64-linux-gnu/crti.o /usr/lib/gcc/aarch64-linux-gnu/13/crtbeginS.o -L/usr/lib/gcc/aarch64-linux-gnu/13 -L/usr/lib/gcc/aarch64-linux-gnu/13/../../../aarch64-linux-gnu -L/usr/lib/gcc/aarch64-linux-gnu/13/../../../../lib -L/lib/aarch64-linux-gnu -L/lib/../lib -L/usr/lib/aarch64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/aarch64-linux-gnu/13/../../.. CMakeFiles/cmTC_603d1.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/aarch64-linux-gnu/13/crtendS.o /usr/lib/gcc/aarch64-linux-gnu/13/../../../aarch64-linux-gnu/crtn.o]
-          arg [/usr/libexec/gcc/aarch64-linux-gnu/13/collect2] ==> ignore
+        ignore line: [gcc version 5.3.0 (i686-posix-dwarf-rev0  Built by MinGW-W64 project) ]
+        ignore line: [COMPILER_PATH=C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../libexec/gcc/i686-w64-mingw32/5.3.0/]
+        ignore line: [C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../libexec/gcc/]
+        ignore line: [C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/bin/]
+        ignore line: [LIBRARY_PATH=C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/]
+        ignore line: [C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/]
+        ignore line: [C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/]
+        ignore line: [C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../lib/]
+        ignore line: [C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/]
+        ignore line: [C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_2ffa6.exe' '-shared-libgcc' '-mtune=generic' '-march=i686']
+        link line: [ C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../libexec/gcc/i686-w64-mingw32/5.3.0/collect2.exe -plugin C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../libexec/gcc/i686-w64-mingw32/5.3.0/liblto_plugin-0.dll -plugin-opt=C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../libexec/gcc/i686-w64-mingw32/5.3.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\mmzz\\AppData\\Local\\Temp\\ccfDHE9A.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-liconv -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt --sysroot=C:/mingw530/i686-530-posix-dwarf-rt_v4-rev0/mingw32 -m i386pe -Bdynamic -u ___register_frame_info -u ___deregister_frame_info -o cmTC_2ffa6.exe C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/crt2.o C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/crtbegin.o -LC:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0 -LC:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc -LC:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib -LC:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../lib -LC:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib -LC:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../.. --whole-archive CMakeFiles\\cmTC_2ffa6.dir/objects.a --no-whole-archive --out-implib libcmTC_2ffa6.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/crtend.o]
+          arg [C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../libexec/gcc/i686-w64-mingw32/5.3.0/collect2.exe] ==> ignore
           arg [-plugin] ==> ignore
-          arg [/usr/libexec/gcc/aarch64-linux-gnu/13/liblto_plugin.so] ==> ignore
-          arg [-plugin-opt=/usr/libexec/gcc/aarch64-linux-gnu/13/lto-wrapper] ==> ignore
-          arg [-plugin-opt=-fresolution=/tmp/ccOg84y9.res] ==> ignore
+          arg [C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../libexec/gcc/i686-w64-mingw32/5.3.0/liblto_plugin-0.dll] ==> ignore
+          arg [-plugin-opt=C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../libexec/gcc/i686-w64-mingw32/5.3.0/lto-wrapper.exe] ==> ignore
+          arg [-plugin-opt=-fresolution=C:\\Users\\mmzz\\AppData\\Local\\Temp\\ccfDHE9A.res] ==> ignore
+          arg [-plugin-opt=-pass-through=-lmingw32] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
-          arg [-plugin-opt=-pass-through=-lc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lmoldname] ==> ignore
+          arg [-plugin-opt=-pass-through=-lmingwex] ==> ignore
+          arg [-plugin-opt=-pass-through=-lmsvcrt] ==> ignore
+          arg [-plugin-opt=-pass-through=-lpthread] ==> ignore
+          arg [-plugin-opt=-pass-through=-ladvapi32] ==> ignore
+          arg [-plugin-opt=-pass-through=-lshell32] ==> ignore
+          arg [-plugin-opt=-pass-through=-luser32] ==> ignore
+          arg [-plugin-opt=-pass-through=-lkernel32] ==> ignore
+          arg [-plugin-opt=-pass-through=-liconv] ==> ignore
+          arg [-plugin-opt=-pass-through=-lmingw32] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
-          arg [--build-id] ==> ignore
-          arg [--eh-frame-hdr] ==> ignore
-          arg [--hash-style=gnu] ==> ignore
-          arg [--as-needed] ==> ignore
-          arg [-dynamic-linker] ==> ignore
-          arg [/lib/ld-linux-aarch64.so.1] ==> ignore
-          arg [-X] ==> ignore
-          arg [-EL] ==> ignore
-          arg [-maarch64linux] ==> ignore
-          arg [--fix-cortex-a53-843419] ==> ignore
-          arg [-pie] ==> ignore
-          arg [-znow] ==> ignore
-          arg [-zrelro] ==> ignore
+          arg [-plugin-opt=-pass-through=-lmoldname] ==> ignore
+          arg [-plugin-opt=-pass-through=-lmingwex] ==> ignore
+          arg [-plugin-opt=-pass-through=-lmsvcrt] ==> ignore
+          arg [--sysroot=C:/mingw530/i686-530-posix-dwarf-rt_v4-rev0/mingw32] ==> ignore
+          arg [-m] ==> ignore
+          arg [i386pe] ==> ignore
+          arg [-Bdynamic] ==> search dynamic
+          arg [-u] ==> ignore
+          arg [___register_frame_info] ==> ignore
+          arg [-u] ==> ignore
+          arg [___deregister_frame_info] ==> ignore
           arg [-o] ==> ignore
-          arg [cmTC_603d1] ==> ignore
-          arg [/usr/lib/gcc/aarch64-linux-gnu/13/../../../aarch64-linux-gnu/Scrt1.o] ==> obj [/usr/lib/gcc/aarch64-linux-gnu/13/../../../aarch64-linux-gnu/Scrt1.o]
-          arg [/usr/lib/gcc/aarch64-linux-gnu/13/../../../aarch64-linux-gnu/crti.o] ==> obj [/usr/lib/gcc/aarch64-linux-gnu/13/../../../aarch64-linux-gnu/crti.o]
-          arg [/usr/lib/gcc/aarch64-linux-gnu/13/crtbeginS.o] ==> obj [/usr/lib/gcc/aarch64-linux-gnu/13/crtbeginS.o]
-          arg [-L/usr/lib/gcc/aarch64-linux-gnu/13] ==> dir [/usr/lib/gcc/aarch64-linux-gnu/13]
-          arg [-L/usr/lib/gcc/aarch64-linux-gnu/13/../../../aarch64-linux-gnu] ==> dir [/usr/lib/gcc/aarch64-linux-gnu/13/../../../aarch64-linux-gnu]
-          arg [-L/usr/lib/gcc/aarch64-linux-gnu/13/../../../../lib] ==> dir [/usr/lib/gcc/aarch64-linux-gnu/13/../../../../lib]
-          arg [-L/lib/aarch64-linux-gnu] ==> dir [/lib/aarch64-linux-gnu]
-          arg [-L/lib/../lib] ==> dir [/lib/../lib]
-          arg [-L/usr/lib/aarch64-linux-gnu] ==> dir [/usr/lib/aarch64-linux-gnu]
-          arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
-          arg [-L/usr/lib/gcc/aarch64-linux-gnu/13/../../..] ==> dir [/usr/lib/gcc/aarch64-linux-gnu/13/../../..]
-          arg [CMakeFiles/cmTC_603d1.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+          arg [cmTC_2ffa6.exe] ==> ignore
+          arg [C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/crt2.o] ==> obj [C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/crt2.o]
+          arg [C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/crtbegin.o] ==> obj [C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/crtbegin.o]
+          arg [-LC:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0] ==> dir [C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0]
+          arg [-LC:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc] ==> dir [C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc]
+          arg [-LC:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib] ==> dir [C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib]
+          arg [-LC:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../lib] ==> dir [C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../lib]
+          arg [-LC:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib] ==> dir [C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib]
+          arg [-LC:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../..] ==> dir [C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../..]
+          arg [--whole-archive] ==> ignore
+          arg [CMakeFiles\\cmTC_2ffa6.dir/objects.a] ==> ignore
+          arg [--no-whole-archive] ==> ignore
+          arg [--out-implib] ==> ignore
+          arg [libcmTC_2ffa6.dll.a] ==> ignore
+          arg [--major-image-version] ==> ignore
+          arg [0] ==> ignore
+          arg [--minor-image-version] ==> ignore
+          arg [0] ==> ignore
           arg [-lstdc++] ==> lib [stdc++]
-          arg [-lm] ==> lib [m]
+          arg [-lmingw32] ==> lib [mingw32]
           arg [-lgcc_s] ==> lib [gcc_s]
           arg [-lgcc] ==> lib [gcc]
-          arg [-lc] ==> lib [c]
+          arg [-lmoldname] ==> lib [moldname]
+          arg [-lmingwex] ==> lib [mingwex]
+          arg [-lmsvcrt] ==> lib [msvcrt]
+          arg [-lpthread] ==> lib [pthread]
+          arg [-ladvapi32] ==> lib [advapi32]
+          arg [-lshell32] ==> lib [shell32]
+          arg [-luser32] ==> lib [user32]
+          arg [-lkernel32] ==> lib [kernel32]
+          arg [-liconv] ==> lib [iconv]
+          arg [-lmingw32] ==> lib [mingw32]
           arg [-lgcc_s] ==> lib [gcc_s]
           arg [-lgcc] ==> lib [gcc]
-          arg [/usr/lib/gcc/aarch64-linux-gnu/13/crtendS.o] ==> obj [/usr/lib/gcc/aarch64-linux-gnu/13/crtendS.o]
-          arg [/usr/lib/gcc/aarch64-linux-gnu/13/../../../aarch64-linux-gnu/crtn.o] ==> obj [/usr/lib/gcc/aarch64-linux-gnu/13/../../../aarch64-linux-gnu/crtn.o]
-        collapse obj [/usr/lib/gcc/aarch64-linux-gnu/13/../../../aarch64-linux-gnu/Scrt1.o] ==> [/usr/lib/aarch64-linux-gnu/Scrt1.o]
-        collapse obj [/usr/lib/gcc/aarch64-linux-gnu/13/../../../aarch64-linux-gnu/crti.o] ==> [/usr/lib/aarch64-linux-gnu/crti.o]
-        collapse obj [/usr/lib/gcc/aarch64-linux-gnu/13/../../../aarch64-linux-gnu/crtn.o] ==> [/usr/lib/aarch64-linux-gnu/crtn.o]
-        collapse library dir [/usr/lib/gcc/aarch64-linux-gnu/13] ==> [/usr/lib/gcc/aarch64-linux-gnu/13]
-        collapse library dir [/usr/lib/gcc/aarch64-linux-gnu/13/../../../aarch64-linux-gnu] ==> [/usr/lib/aarch64-linux-gnu]
-        collapse library dir [/usr/lib/gcc/aarch64-linux-gnu/13/../../../../lib] ==> [/usr/lib]
-        collapse library dir [/lib/aarch64-linux-gnu] ==> [/lib/aarch64-linux-gnu]
-        collapse library dir [/lib/../lib] ==> [/lib]
-        collapse library dir [/usr/lib/aarch64-linux-gnu] ==> [/usr/lib/aarch64-linux-gnu]
-        collapse library dir [/usr/lib/../lib] ==> [/usr/lib]
-        collapse library dir [/usr/lib/gcc/aarch64-linux-gnu/13/../../..] ==> [/usr/lib]
-        implicit libs: [stdc++;m;gcc_s;gcc;c;gcc_s;gcc]
-        implicit objs: [/usr/lib/aarch64-linux-gnu/Scrt1.o;/usr/lib/aarch64-linux-gnu/crti.o;/usr/lib/gcc/aarch64-linux-gnu/13/crtbeginS.o;/usr/lib/gcc/aarch64-linux-gnu/13/crtendS.o;/usr/lib/aarch64-linux-gnu/crtn.o]
-        implicit dirs: [/usr/lib/gcc/aarch64-linux-gnu/13;/usr/lib/aarch64-linux-gnu;/usr/lib;/lib/aarch64-linux-gnu;/lib]
+          arg [-lmoldname] ==> lib [moldname]
+          arg [-lmingwex] ==> lib [mingwex]
+          arg [-lmsvcrt] ==> lib [msvcrt]
+          arg [C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/crtend.o] ==> obj [C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/crtend.o]
+        remove lib [msvcrt]
+        remove lib [msvcrt]
+        collapse obj [C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/crt2.o] ==> [C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/lib/crt2.o]
+        collapse obj [C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/crtbegin.o] ==> [C:/Qt/Qt5.9.2/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/crtbegin.o]
+        collapse obj [C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/crtend.o] ==> [C:/Qt/Qt5.9.2/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/crtend.o]
+        collapse library dir [C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0] ==> [C:/Qt/Qt5.9.2/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0]
+        collapse library dir [C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc] ==> [C:/Qt/Qt5.9.2/Tools/mingw530_32/lib/gcc]
+        collapse library dir [C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib] ==> [C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/lib]
+        collapse library dir [C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../lib] ==> [C:/Qt/Qt5.9.2/Tools/mingw530_32/lib]
+        collapse library dir [C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib] ==> [C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/lib]
+        collapse library dir [C:/Qt/Qt5.9.2/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../..] ==> [C:/Qt/Qt5.9.2/Tools/mingw530_32/lib]
+        implicit libs: [stdc++;mingw32;gcc_s;gcc;moldname;mingwex;pthread;advapi32;shell32;user32;kernel32;iconv;mingw32;gcc_s;gcc;moldname;mingwex]
+        implicit objs: [C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/lib/crt2.o;C:/Qt/Qt5.9.2/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/crtbegin.o;C:/Qt/Qt5.9.2/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/crtend.o]
+        implicit dirs: [C:/Qt/Qt5.9.2/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0;C:/Qt/Qt5.9.2/Tools/mingw530_32/lib/gcc;C:/Qt/Qt5.9.2/Tools/mingw530_32/i686-w64-mingw32/lib;C:/Qt/Qt5.9.2/Tools/mingw530_32/lib]
         implicit fwks: []
       
       
