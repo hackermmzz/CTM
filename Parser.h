@@ -183,27 +183,36 @@ struct ComposedStatment{
     vector<pair<int,void*>>p;
 };
 struct ForStatement{
-
+    Expression*exp0;
+    Declaration*dec0;
+    //
+    Expression*exp1;
+    //
+    Expression*exp2;
+    //
+    Statement*stm;
 };
 struct SwitchStatment{
     Expression*exp;
     vector<tuple<bool,int,vector<Statement*>>>body;
 };
 struct WhileStatement{
-
+    Expression*exp;
+    Statement*stm;
 };
 struct DoWhileStatment{
-    
+    Statement*body;
+    Expression*exp;
 };
 struct IfElseStatment{
     Expression*exp0;
     Statement*stm0,*stm1;
 };
 struct AsmStatement{
-
+    vector<string>ins;
 };
 struct ReturnStatement{
-
+    Expression*exp;
 };
 struct Program{
     //declaration为0,function为1
@@ -254,9 +263,11 @@ struct Parser{
     ReturnStatement*Parse_ReturnStatement();
     AsmStatement*Parse_AsmStatement();
     Statement*Parse_Statement();
+    Expression*Parse_ExpressionStatement();
 };
 ///////////////////////////////
 bool CheckIsBaseType(const Token&tk);
 int CharToInt(const string&s);
+bool CheckIsTypeSpecifier(const Token&tk);
 ///////////////////////////////
 #endif

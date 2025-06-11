@@ -6,3 +6,5 @@ struct Test{
     }a;
     struct wlh mask;
 };
+
+byte a;

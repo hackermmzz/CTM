@@ -92,7 +92,7 @@ struct:key_struct
                         |"switch" "(" <expression> ")" "{" ["case" int_constant|char_constant |"default" ":" <statement> ]   "}"
 <iteration_statement> ::= "while" "(" <expression> ")" <statement>
                      | "do" <statement> "while" "(" <expression> ")" ";"
-                     | "for" "(" [<declaration>|<expression>] ";" [<expression>] ";" [<expression>] ")" <statement>
+                     | "for" "(" <declaration>|<expression_statement>  <expression_statement>  [<expression>] ")" <statement>
 <jump_statement>  ::= "continue" ";"
                      | "break" ";"
                      | "return" [<expression>] ";"

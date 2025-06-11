@@ -106,6 +106,8 @@ Declaration *Parser::Parse_declaration(TypeSpecifier *ts)
             Error("in line "<<cur().line<<" pos "<<cur().pos<<" missing \";\"");
         }
     }
+    //
+    ++idx;
     return ret;
 }
 
@@ -308,7 +310,7 @@ ComposedStatment *Parser::Parse_composed_statement()
     while(cur()!=0&&cur()!=Rcb){
         auto tk=cur();
         //["unsigned"] ( "void" | "byte" | "hword" | "word")| "struct"
-        if(tk==key_unsigned||CheckIsBaseType(tk)||tk==key_struct){
+        if(CheckIsTypeSpecifier(tk)){
             ret->p.push_back({0,Parse_declaration(Parse_type_specifier())});
         }
         else ret->p.push_back({1,Parse_composed_statement()});
@@ -663,27 +665,139 @@ SwitchStatment *Parser::Parse_SwitchStatement()
 
 WhileStatement *Parser::Parse_WhileStatement()
 {
-    return nullptr;
+    WhileStatement*ret=new WhileStatement;
+    //
+    if(cur()!=key_while){
+        Error("in fact I am parsing while statement but why i am here in line "<<cur().line<<" pos "<<cur().pos);
+    }
+    ++idx;
+    if(cur()!=Lpb){
+        Error("expected \"(\" in line "<<cur().line<<" pos "<<cur().pos);
+    }
+    ++idx;
+    ret->exp=Parse_expression();
+    if(cur()!=Rpb){
+        Error("expected \")\" in line "<<cur().line<<" pos "<<cur().pos);
+    }
+    ++idx;
+    ret->stm=Parse_Statement();
+    //
+    return ret;
 }
 
 ForStatement *Parser::Parse_ForStatement()
 {
-    return nullptr;
+    ForStatement*ret=new ForStatement;
+    //
+    if(cur()!=key_for){
+         Error("in fact I am parsing for statement but why i am here in line "<<cur().line<<" pos "<<cur().pos);
+    }
+    ++idx;
+    if(cur()!=Lpb){
+        Error("expected \"(\" in line "<<cur().line<<" pos "<<cur().pos);
+    }
+    ++idx;
+    //
+    if(CheckIsTypeSpecifier(cur())){
+        ret->dec0=Parse_declaration(Parse_type_specifier());
+    }
+    else{
+        ret->exp0=Parse_ExpressionStatement();
+    }
+    //
+    ret->exp1=Parse_ExpressionStatement();
+    //
+    if(cur()!=Rpb)ret->exp2=Parse_expression();
+    //
+    if(cur()!=Rpb){
+        Error("expected \")\" in line "<<cur().line<<" pos "<<cur().pos);
+    }
+    ++idx;
+    //
+    ret->stm=Parse_Statement();
+    return ret;
 }
 
 DoWhileStatment *Parser::Parse_DoWhileStatement()
 {
-    return nullptr;
+    DoWhileStatment*ret=new DoWhileStatment;
+    if(cur()!=key_do){
+        Error("in fact I am parsing do while statement but why i am here in line "<<cur().line<<" pos "<<cur().pos);
+    }
+    ++idx;
+    ret->body=Parse_Statement();
+    if(cur()!=key_while){
+        Error("expected key word while in line "<<cur().line<<" pos "<<cur().pos);
+    }
+    ++idx;
+    if(cur()!=Lpb){
+        Error("missing \"(\" in line "<<cur().line<<" pos "<<cur().pos);
+    }
+    ++idx;
+    ret->exp=Parse_expression();
+    if(cur()!=Rpb){
+        Error("missing \")\" in line "<<cur().line<<" pos "<<cur().pos);
+    }
+    ++idx;
+    if(cur()!=Sem){
+        Error("missing \";\" in line "<<cur().line<<" pos "<<cur().pos);
+    }
+    ++idx;
+    return ret;
 }
 
 ReturnStatement *Parser::Parse_ReturnStatement()
 {
-    return nullptr;
+    ReturnStatement*ret=new ReturnStatement;
+    //
+    if(cur()!=key_return){
+        Error("in fact I am parsing return statement but why i am here in line "<<cur().line<<" pos "<<cur().pos);
+    }
+    ++idx;
+    //
+    ret->exp=Parse_ExpressionStatement();
+    //
+    return ret;
 }
 
 AsmStatement *Parser::Parse_AsmStatement()
 {
-    return nullptr;
+    AsmStatement*ret=new AsmStatement;
+    //
+    if(cur()!=key_asm){
+         Error("in fact I am parsing asm statement but why i am here in line "<<cur().line<<" pos "<<cur().pos);
+    }
+    ++idx;
+    //
+    if(cur()!=Lpb){
+        Error("expected \"(\" in line "<<cur().line<<" pos "<<cur().pos);
+    }
+    ++idx;
+    if(cur()!=Rpb){
+        while(1){
+            if(cur()!=STR_Literal){
+                Error("expected mips instruction in line "<<cur().line<<" pos "<<cur().pos);
+            }
+            ret->ins.
+            push_back(cur().data);
+            if(cur()==Comma){
+                ++idx;
+                continue;
+            }
+            else break;
+        }
+    }
+    //
+    if(cur()!=Rpb){
+        Error("expected \")\" in line "<<cur().line<<" pos "<<cur().pos);
+    }
+    ++idx;
+    if(cur()!=Sem){
+        Error("expected \";\" in line "<<cur().line<<" pos "<<cur().pos);
+    }
+    ++idx;
+    //
+    return ret;
 }
 
 Statement *Parser::Parse_Statement()
@@ -729,15 +843,29 @@ Statement *Parser::Parse_Statement()
         *ret={Statement::Asm,Parse_AsmStatement()};
     }
     else{
-        *ret={Statement::Expression,cur()==Sem?0:Parse_expression()};
-        if(cur()!=Sem){
-                Error("expected \";\" in line "<<next().line<<" pos "<<next().pos);
-        }
-        ++idx;
+        *ret={Statement::Expression,Parse_ExpressionStatement()};
     }
-   return ret;
-}
 
+     return ret;
+}
+Expression *Parser::Parse_ExpressionStatement()
+{
+    Expression*exp=new Expression;
+    if(cur()==Sem){
+        ++idx;
+        return exp;
+    }
+    //
+    exp=Parse_expression();
+    //
+    if(cur()!=Sem){
+        Error("Expected \";\" in line "<<cur().line<<" pos "<<cur().pos);
+    }
+    ++idx;
+    //
+    return exp;
+}
+   
 bool CheckIsBaseType(const Token &tk)
 {
    if(tk==key_void||tk==key_byte||tk==key_hword||tk==key_word)return 1;
@@ -763,4 +891,10 @@ int CharToInt(const string &s)
         }
     }
     return s[1];
+}
+
+bool CheckIsTypeSpecifier(const Token &tk)
+{
+    if(tk==key_unsigned||CheckIsBaseType(tk)||tk==key_struct)return 1;
+    return 0;
 }

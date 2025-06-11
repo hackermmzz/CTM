@@ -242,6 +242,7 @@ void Lexifier::skip()
             idx+=3;
             while(idx<buf.size()&&(buf[idx]!='/'||buf[idx-1]!='*'))++idx;
             flag=1;
+            ++idx;
         }
         //处理预处理#号
         else if(ch0=='#'){
