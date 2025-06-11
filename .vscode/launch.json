@@ -5,7 +5,7 @@
             "type": "lldb",
             "request": "launch",
             "name": "Debug",
-            "program": "${fileDirname}/${fileBasenameNoExtension}",
+            "program": "main",
             "args": ["test.txt"],
             "cwd": "${fileDirname}",
             "internalConsoleOptions": "neverOpen",

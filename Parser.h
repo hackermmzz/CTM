@@ -4,6 +4,7 @@
 #include<string>
 #include<map>
 #include<set>
+#include<string.h>
 ///////////////////////////////
 struct StructInfo;
 struct TypeSpecifier;
@@ -47,11 +48,13 @@ struct TypeSpecifier{
     int baseType;//mark down if it is a base type
     string typeName;
     StructInfo*si;
+    TypeSpecifier();
 };
 
 struct TypeMark{
     TypeSpecifier tp;
     int pointer;
+    TypeMark();
 };
 struct Expression{
     vector<AssignExp>exp;
@@ -60,6 +63,7 @@ struct PrimaryExp{
     Expression*exp;
     int tp;
     string id_or_constant;
+    PrimaryExp();
 };
 struct PostfixExp{
     PrimaryExp*primaryExp;
@@ -67,6 +71,7 @@ struct PostfixExp{
     enum Type{Index,Funcall,Dot,Pointer,Add,Sub};
     vector<pair<Type,void*>>op;
     //
+    PostfixExp();
 };
 struct UnaryExp{
     PostfixExp*postExp;
@@ -76,63 +81,77 @@ struct UnaryExp{
     //& * + - ! ~
     int tp1;
     CastExp*castExp;
+    //
+    UnaryExp();
 };
 struct CastExp{
     TypeMark type;
     CastExp*castExp;
     UnaryExp*exp;
+    CastExp();
 };
 struct MultiplicativeExp{
     CastExp*exp0;
     CastExp*exp1;
     int tp;
+    MultiplicativeExp();
 };
 struct AdditiveExp{
     MultiplicativeExp*exp0;
     MultiplicativeExp*exp1;
     int tp;
+    AdditiveExp();
 };
 struct ShiftExp{
     AdditiveExp*exp0;
     AdditiveExp*exp1;
     int tp;
+    ShiftExp();
 };
 struct RelationalExp
 {
    ShiftExp*exp0;
    ShiftExp*exp1;
    int tp;
+   RelationalExp();
 };
 
 struct EqualityExp{
     RelationalExp*exp0;
     RelationalExp*exp1;
     int tp;
+    EqualityExp();
 };
 struct AndExp{
     EqualityExp*exp0;
     EqualityExp*exp1;
+    AndExp();
 };
 struct ExclusiveOrExp{
     AndExp*exp0;
     AndExp*exp1;
+    ExclusiveOrExp();
 };
 struct InclusiveOrExp{
     ExclusiveOrExp*exp0;
     ExclusiveOrExp*exp1;
+    InclusiveOrExp();
 };
 struct LogicalAndExp{
     InclusiveOrExp*exp0;
     InclusiveOrExp*exp1;
+    LogicalAndExp();
 };
 struct LogicalOrExp{
     LogicalAndExp*exp0;
     LogicalAndExp*exp1;
+    LogicalOrExp();
 };
 struct AssignExp{
     LogicalOrExp*exp0;
     int op;
     AssignExp*exp1;
+    AssignExp();
 };
 
 struct InitializerList{
@@ -141,11 +160,13 @@ struct InitializerList{
 struct Initializer{
     AssignExp*exp;
     InitializerList*list;
+    Initializer();
 };
 struct DeclaratorType{
     int pointer;
     vector<int>array;
     DeclaratorType*tp;
+    DeclaratorType();
 };
 
 struct Declarator{
@@ -177,6 +198,8 @@ struct Statement{
     enum{Expression,Composed,For,While,DoWhile,IfElse,Switch,Continue,Break,Return,Asm};
     int type;
     void*statement;
+    Statement();
+    Statement(int tp,void*stm);
 };
 struct ComposedStatment{
     //declaration为0,statement为1
@@ -191,28 +214,34 @@ struct ForStatement{
     Expression*exp2;
     //
     Statement*stm;
+    ForStatement();
 };
 struct SwitchStatment{
     Expression*exp;
     vector<tuple<bool,int,vector<Statement*>>>body;
+    SwitchStatment();
 };
 struct WhileStatement{
     Expression*exp;
     Statement*stm;
+    WhileStatement();
 };
 struct DoWhileStatment{
     Statement*body;
     Expression*exp;
+    DoWhileStatment();
 };
 struct IfElseStatment{
-    Expression*exp0;
+    Expression*exp;
     Statement*stm0,*stm1;
+    IfElseStatment();
 };
 struct AsmStatement{
     vector<string>ins;
 };
 struct ReturnStatement{
     Expression*exp;
+    ReturnStatement();
 };
 struct Program{
     //declaration为0,function为1

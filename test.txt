@@ -1,10 +1,20 @@
+
 struct Test{
     struct A{
         byte x,y;
         word cost;
         void* data[100];
+        struct B{
+            void*** (*data)[100];
+        }b;
+        struct C{
+            struct B *(**dt[10])[10];
+        }c;
     }a;
     struct wlh mask;
 };
-
 byte a;
+
+word add(word x,word y){
+    
+}

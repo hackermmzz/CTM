@@ -91,12 +91,18 @@ Declaration *Parser::Parse_declaration(TypeSpecifier *ts)
 {
     Declaration*ret=new Declaration;
     ret->ts=*ts;
+    //attention a declaration may have only type_specifier without any id
+    if(cur()==Sem){
+        ++idx;
+        return ret;
+    }
     //
     while(1){
         auto*r=Parse_initDeclarator();
         ret->dl.push_back(*r);
         if(cur()==Comma){
             ++idx;
+            continue;
         }
         else if(cur()==Sem){
             ++idx;
@@ -107,7 +113,6 @@ Declaration *Parser::Parse_declaration(TypeSpecifier *ts)
         }
     }
     //
-    ++idx;
     return ret;
 }
 
@@ -130,7 +135,6 @@ TypeSpecifier *Parser::Parse_type_specifier()
         }else{
             Error("I don't the type:"<<tk.data<<" in line:"<<tk.line<<" located at:"<<tk.pos);
         }
-        ++idx;
     }
     ///////////////////////////////////
     return ret;
@@ -166,7 +170,7 @@ StructInfo* Parser::Parse_struct_declaration_list(string name)
     StructInfo*ret=new StructInfo;
     ret->id=name;
     //
-    while(cur()!=Rcb){
+    while(cur()!=0&&cur()!=Rcb){
         //
         TypeSpecifier*tp=Parse_type_specifier();
         while(1){
@@ -313,12 +317,13 @@ ComposedStatment *Parser::Parse_composed_statement()
         if(CheckIsTypeSpecifier(tk)){
             ret->p.push_back({0,Parse_declaration(Parse_type_specifier())});
         }
-        else ret->p.push_back({1,Parse_composed_statement()});
+        else ret->p.push_back({1,Parse_Statement()});
     }
     //
     if(cur()!=Rcb){
          Error("expect \"}\" in line "<<cur().line<<" pos "<<cur().pos);
     }
+    ++idx;
     return ret;
 }
 
@@ -440,7 +445,8 @@ MultiplicativeExp *Parser::Parse_multiplicative_expression()
 CastExp *Parser::Parse_cast_expression()
 {
     CastExp*ret=new CastExp;
-    if(cur()==Lpb){
+    //althogh current may be (,but it doesn't mean it is cast operation because it may be (exp) type
+    if(cur()==Lpb&&CheckIsTypeSpecifier(next())){
         ++idx;
         ret->type=ParseTypeMark();
         if(cur()!=Rpb){
@@ -482,7 +488,7 @@ PostfixExp *Parser::Parse_postfix_expression()
         ++idx;
         if(tk==Lsb){
             ret->op.push_back({PostfixExp::Index,Parse_expression()});
-            if(tk!=Rsb){
+            if(cur()!=Rsb){
                 Error("in line "<<cur().line<<" pos "<<cur().pos<<" missing \"]\"");
             }
             ++idx;
@@ -496,7 +502,7 @@ PostfixExp *Parser::Parse_postfix_expression()
                 }
             }
             ret->op.push_back({PostfixExp::Funcall,arg});
-            if(tk!=Rpb){
+            if(cur()!=Rpb){
                 Error("in line "<<cur().line<<" pos "<<cur().pos<<" missing \")\"");
             }
             ++idx;
@@ -506,7 +512,6 @@ PostfixExp *Parser::Parse_postfix_expression()
             }
             auto*r=Parse_primary_expression();
             ret->op.push_back({tk==Dot?PostfixExp::Dot:PostfixExp::Pointer,r});
-            ++idx;
         }else if(tk==Inc||tk==Dec){
             ret->op.push_back({tk==Inc?PostfixExp::Add:PostfixExp::Sub,0});
         }
@@ -577,7 +582,7 @@ IfElseStatment *Parser::Parse_IfElseStatement()
         Error("expected \"(\" in line "<<cur().line<<" pos "<<cur().pos);
     }
     ++idx;
-    ret->exp0=Parse_expression();
+    ret->exp=Parse_expression();
     if(cur()!=Rpb){
          Error("expected \")\" in line "<<cur().line<<" pos "<<cur().pos);
     }
@@ -660,6 +665,7 @@ SwitchStatment *Parser::Parse_SwitchStatement()
     if(cur()!=Rcb){
          Error("expected \"}\" in line "<<cur().line<<" pos "<<cur().pos);
     }
+    ++idx;
     return ret;
 }
 
@@ -780,6 +786,7 @@ AsmStatement *Parser::Parse_AsmStatement()
             }
             ret->ins.
             push_back(cur().data);
+            ++idx;
             if(cur()==Comma){
                 ++idx;
                 continue;
@@ -875,7 +882,7 @@ bool CheckIsBaseType(const Token &tk)
 int CharToInt(const string &s)
 {
     if(s.size()>2||(s.size()==2&&s[0]!='\\')){
-        static_assert("wlh is da sha gou!!!");
+        Debug("wlh is da sha gou!!!");
     }
     if(s.size()==2){
         char nxt=s[1];
@@ -897,4 +904,162 @@ bool CheckIsTypeSpecifier(const Token &tk)
 {
     if(tk==key_unsigned||CheckIsBaseType(tk)||tk==key_struct)return 1;
     return 0;
+}
+
+TypeSpecifier::TypeSpecifier()
+{
+    _signed=0;
+    baseType=0;
+    si=0;
+}
+
+TypeMark::TypeMark()
+{
+    pointer=0;
+}
+
+PrimaryExp::PrimaryExp()
+{
+    exp=0;
+    tp=0;
+}
+
+PostfixExp::PostfixExp()
+{
+    primaryExp=0;
+}
+
+UnaryExp::UnaryExp()
+{
+    postExp=0;
+    tp0=tp1=0;
+    unaryExp=0;
+    castExp=0;
+}
+
+CastExp::CastExp()
+{
+    castExp=0;
+    exp=0;
+}
+
+MultiplicativeExp::MultiplicativeExp()
+{
+    exp0=exp1=0;
+    tp=0;
+}
+
+AdditiveExp::AdditiveExp()
+{
+    exp0=exp1=0;
+    tp=0;
+}
+
+ShiftExp::ShiftExp()
+{
+    exp0=exp1=0;
+    tp=0;
+}
+
+RelationalExp::RelationalExp()
+{
+    exp0=exp1=0;
+    tp=0;
+}
+
+EqualityExp::EqualityExp()
+{
+    exp0=exp1=0;
+    tp=0;
+}
+
+AndExp::AndExp()
+{
+    exp0=exp1=0;
+}
+
+ExclusiveOrExp::ExclusiveOrExp()
+{
+    exp0=exp1=0;
+}
+
+InclusiveOrExp::InclusiveOrExp()
+{
+    exp0=exp1=0;
+}
+
+LogicalAndExp::LogicalAndExp()
+{
+    exp0=exp1=0;
+}
+
+LogicalOrExp::LogicalOrExp()
+{
+    exp0=exp1=0;
+}
+
+AssignExp::AssignExp()
+{
+    exp0=0;
+    exp1=0;
+    op=0;
+}
+
+Initializer::Initializer()
+{
+    exp=0;
+    list=0;
+}
+
+DeclaratorType::DeclaratorType()
+{
+    tp=0;
+    pointer=0;
+}
+
+Statement::Statement()
+{
+    type=0;
+    statement=0;
+}
+
+Statement::Statement(int tp, void *stm)
+{
+    type=tp;
+    statement=stm;
+}
+
+ForStatement::ForStatement()
+{
+    exp0=exp1=exp2=0;
+    dec0=0;
+    stm=0;
+}
+
+SwitchStatment::SwitchStatment()
+{
+    exp=0;
+}
+
+WhileStatement::WhileStatement()
+{
+    exp=0;
+    stm=0;
+}
+
+DoWhileStatment::DoWhileStatment()
+{
+    exp=0;
+    body=0;
+}
+
+IfElseStatment::IfElseStatment()
+{
+    exp=0;
+    stm0=stm1=0;
+}
+
+ReturnStatement::ReturnStatement()
+{
+    exp=0;
 }

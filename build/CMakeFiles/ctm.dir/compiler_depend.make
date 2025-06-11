@@ -417,6 +417,8 @@ CMakeFiles/ctm.dir/Parser.cpp.o: /root/mmzz/CTM/Parser.cpp \
   /usr/include/stdc-predef.h \
   /usr/include/stdio.h \
   /usr/include/stdlib.h \
+  /usr/include/string.h \
+  /usr/include/strings.h \
   /usr/include/time.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
@@ -819,12 +821,18 @@ CMakeFiles/ctm.dir/main.cpp.o: /root/mmzz/CTM/main.cpp \
   /usr/include/stdc-predef.h \
   /usr/include/stdio.h \
   /usr/include/stdlib.h \
+  /usr/include/string.h \
+  /usr/include/strings.h \
   /usr/include/time.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
   /usr/lib/gcc/aarch64-linux-gnu/13/include/stdarg.h \
   /usr/lib/gcc/aarch64-linux-gnu/13/include/stddef.h
 
+
+/usr/include/strings.h:
+
+/usr/include/string.h:
 
 /usr/include/c++/13/bits/stl_tree.h:
 
