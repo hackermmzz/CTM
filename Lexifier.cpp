@@ -151,7 +151,7 @@ void Lexifier::parse()
         else if(ch=='\"'){
             Token tk;tk.line=line,tk.pos=idx;tk.type=STR_Literal;
             bool flag=1;
-            while(ch=next()){
+            while(ch=next(),ch){
                 if(ch=='\n')break;
                 if(ch=='\"'&&buf[idx-1]!='\\'){
                     tk.data=string{buf.begin()+tk.pos+1,buf.begin()+idx+1};
