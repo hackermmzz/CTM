@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/ctm.dir/Lexifier.cpp.o CMakeFiles/ctm.dir/Parser.cpp.o CMakeFiles/ctm.dir/debug.cpp.o CMakeFiles/ctm.dir/main.cpp.o -o ctm 
